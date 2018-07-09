@@ -1,0 +1,81 @@
+.content-one {
+	padding: 20px 10px 0;
+}
+
+.goback {
+	color: #C0BFC4;
+	float: left;
+	font-size: 2.5rem;
+	margin-top: -0.5rem;
+}
+
+.title {
+	text-align: center;
+	font-size: 1.8rem;
+}
+
+.topmsg {
+	margin-top: 1.5rem;
+	background-color: #B22222;
+	border-radius: 0.5rem;
+	box-shadow: 0rem 0.3rem 0.4rem lightpink;
+}
+
+.cenmsg {
+	margin-top: 1.5rem;
+	background-color: #E08E0B;
+	border-radius: 0.5rem;
+	box-shadow: 0rem 0.3rem 0.4rem #EB9;
+}
+
+.footmsg {
+	margin: 1.5rem 0 1.5rem;
+	background-color: #0480BE;
+	border-radius: 0.5rem;
+	box-shadow: 0rem 0.3rem 0.4rem lightblue;
+}
+
+.topmsg-top,
+.topmsg-center {
+	color: #fff;
+	padding: 1rem 1rem 0;
+}
+
+.topmsg-center>ul>li,
+.topmsg-foot>ul>li {
+	float: left;
+}
+
+.topmsg-foot {
+	color: #fff;
+	padding: 1rem;
+}
+
+.top-main {
+	position: relative;
+}
+
+.s1 {
+	position: absolute;
+	top: 30%;
+}
+
+.s2 {
+	float: right;
+	margin-top: 1.5rem;
+}
+
+.topmsg-center>ul>li,
+.topmsg-foot>ul>li {
+	width: 33%;
+	display: inline-block;
+}
+
+.add-card {
+	padding: 1.5rem 0;
+	background-color: #DDDDDD;
+	margin: 0;
+	border: 0;
+	color: #D53C27;
+	text-align: center;
+}

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>管理中心</title>
+		<meta name="DC.creator" content="Ethan Marcotte - http://unstoppablerobotninja.com/">
+		<meta name="DC.language" content="en">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<link rel="stylesheet" href="Content/Css/detail.css">
+	<script src="Scripts/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		.section:after,
+		ul.nav:after {
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+		
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		font,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		/*tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td */
+		
+		{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			font-size: 100%;
+			vertical-align: baseline;
+			background: transparent;
+		}
+		
+		body {
+			line-height: 1;
+		}
+		
+		ol,
+		ul {
+			list-style: none;
+		}
+		
+		blockquote,
+		q {
+			quotes: none;
+		}
+		
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+		
+		ins {
+			text-decoration: none;
+		}
+		
+		del {
+			text-decoration: line-through;
+		}
+		
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100%;
+		}
+		
+		body {
+			/*background: #E4E4E4 url("http://alistapart.com/d/responsive-web-design/ex/site/bg.png");*/
+			color: #292929;
+			color: rgba(0, 0, 0, 0.82);
+			font: normal 100% Cambria, Georgia, serif;
+			-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			-webkit-text-size-adjust: none;
+		}
+		
+		a {
+			color: #890101;
+			text-decoration: none;
+			-moz-transition: 0.2s color linear;
+			-webkit-transition: 0.2s color linear;
+			transition: 0.2s color linear;
+		}
+		
+		a:hover {
+			color: #DF3030;
+		}
+		
+		.secrch {
+			margin: 20px 0 10px 17%;
+		}
+		
+		.secrch>input {
+			display: inline-block;
+			width: 20%;
+			padding-top: 5px;
+		}
+		
+		.secrch>span {
+			border: 1px solid #ccc;
+			padding: 0 10px;
+			background: #ddd;
+		}
+		
+		.tab {
+			padding: 5px 5px;
+		}
+		
+		.tab>span {
+			padding-left: 20%;
+			color: #ccc;
+		}
+		
+		#th {
+			background: dodgerblue;
+			color: #fff;
+		}
+		
+		#th,
+		#td {
+			border: 1px solid #000;
+			text-align: center;
+			padding: 5px 5px;
+			width: 19%;
+		}
+	</style>
+
+	<body>
+		<div id="content">
+			<img class="mao-point" onclick="toMao()" src="Images/returnToTop.png">
+			<div class="check-row">
+				<div class="check-head">
+					<img onclick="cancel()" src="Images/top_return.png">管理中心
+				</div>
+			</div>
+			<div class="secrch">
+				<input type="text" />
+				<input type="text" />
+				<span>查询</span>
+				<span>清空</span>
+			</div>
+			<!--<hr />-->
+			<div>
+				<div>
+					<div class="tab">
+						<span style="color: dodgerblue;">A 类</span>
+						<span>B 类</span>
+						<span>C 类</span>
+					</div>
+					<table id="table">
+						<tbody>
+							<!--<tr>
+								<td id="th">省</td>
+								<td id="th">市</td>
+								<td id="th">区/县</td>
+								<td id="th">管理中心状态</td>
+							</tr>
+							<tr>
+								<td id="td" rowspan="4">四川省</td>
+								<td id="td" rowspan="3">成都市</td>
+								<td id="td">武侯区</td>
+								<td id="td">已签约</td>
+							</tr>
+							<tr>-->
+							<!--<td id="td">四川省</td>-->
+							<!--<td id="td" >成都市</td>-->
+							<!--<td id="td">武侯区</td>
+								<td id="td">未开通</td>
+							</tr>
+							<tr>-->
+							<!--<td id="td">四川省</td>-->
+							<!--<td id="td" >成都市</td>-->
+							<!--<td id="td">锦江区</td>
+								<td id="td">已开通</td>
+							</tr>
+							<tr>-->
+							<!--<td id="td">四川省</td>-->
+							<!--<td id="td">广元市</td>
+								<td id="td">毛县</td>
+								<td id="td">已开通</td>
+							</tr>
+							<tr>
+								<td id="td">陕西省</td>
+								<td id="td">西安市</td>
+								<td id="td">高新区</td>
+								<td id="td">未开通</td>
+							</tr>-->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$(".tab").on("click", "span", function() {
+				$(this).siblings().css("color", "#ccc");
+				$(this).css("color", "dodgerblue");
+			});
+			//自动生成信息
+			var data = {
+				"四川": {
+					"成都市": [{
+							"地方": "未开通"
+						},
+						{
+							"地方1": "已开通"
+						}
+					],
+					"绵羊市": [{
+						"地方": "未开通"
+					}, {
+						"地方": "已开通"
+					}, {
+						"地方": "未开通"
+					}],
+					"绵羊市2": [{
+						"地方": "已签约"
+					}, {
+						"地方": "未开通"
+					}]
+				},
+				"广东省": {
+					"佛山市": [{
+							"地方": "已签约"
+						},
+						{
+							"地方1": "已开通"
+						}
+					],
+					"韶关市": [{
+						"地方": "已签约"
+					}],
+					"绵羊市": [{
+						"地方": "已开通"
+					}, {
+						"地方": "未开通"
+					}]
+				}
+			};
+			Con(data);
+		})
+
+		function Con(data) {
+			var content = `<tr>
+							<td id="th">省</td>
+							<td id="th">市</td>
+							<td id="th">区/县</td>
+							<td id="th">管理中心状态</td>
+						</tr>`;
+			$("tbody").append(content);
+			for(var v in data) {
+
+				var sheng = 0;
+				for(var vv in data[v]) {
+					sheng += data[v][vv].length;
+				}
+				var i = 0;
+				for(var vv in data[v]) {
+
+					var z = data[v][vv].length;
+					for(var j = 0; j < z; j++) {
+						//debugger;
+						i++;
+						var name = "";
+						var status = "";
+
+						for(var ls in data[v][vv][j]) {
+							name = ls;
+							status = data[v][vv][j][name];
+							break;
+						}
+						if(i < sheng || sheng == 1) {
+							if(i == 1) {
+								content = `<tr>
+									<td id="td" rowspan="${sheng}">${v}</td>
+									<td id="td" rowspan="${z}">${vv}</td>
+									<td id="td">${name}</td>`;
+								/*<td id="td" class="status">${status}</td>
+								</tr>*/
+								if(status == "未开通") {
+									content += `<td id="td" style="color:#ccc;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "#ccc")*/
+								} else if(status == "已签约") {
+									content += `<td id="td" style="color:blue;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "blue")*/
+								} else {
+									content += `<td id="td" style="color:green;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "green")*/
+								}
+								$("tbody").append(content);
+							} else {
+								if(z > 1 && j != 0) {
+									content = `<tr>
+										<td id="td">${name}</td>`;
+									if(status == "未开通") {
+										content += `<td id="td" style="color:#ccc;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "#ccc")*/
+									} else if(status == "已签约") {
+										content += `<td id="td" style="color:blue;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "blue")*/
+									} else {
+										content += `<td id="td" style="color:green;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "green")*/
+									}
+									$("tbody").append(content);
+								} else {
+									content = `<tr>
+										<td id="td" rowspan="${z}">${vv}</td>
+										<td id="td">${name}</td>`;
+									if(status == "未开通") {
+										content += `<td id="td" style="color:#ccc;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "#ccc")*/
+									} else if(status == "已签约") {
+										content += `<td id="td" style="color:blue;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "blue")*/
+									} else {
+										content += `<td id="td" style="color:green;">${status}</td>
+									</tr>`
+										/*$(".statu").css("color", "green")*/
+									}
+									$("tbody").append(content);
+								}
+							}
+						} else {
+							if(z > 1) {
+								content = `<tr>
+										<td id="td">${name}</td>`;
+								if(status == "未开通") {
+									content += `<td id="td" style="color:#ccc;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "#ccc")*/
+								} else if(status == "已签约") {
+									content += `<td id="td" style="color:blue;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "blue")*/
+								} else {
+									content += `<td id="td" style="color:green;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "green")*/
+								}
+
+								$("tbody").append(content);
+							} else {
+								content = `<tr>
+										<td id="td" >${vv}</td>
+										<td id="td">${name}</td>`;
+								if(status == "未开通") {
+									content += `<td id="td" style="color:#ccc;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "#ccc")*/
+								} else if(status == "已签约") {
+									content += `<td id="td" style="color:blue;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "blue")*/
+								} else {
+									content += `<td id="td" style="color:green;">${status}</td>
+									</tr>`
+									/*$(".statu").css("color", "green")*/
+								}
+								$("tbody").append(content);
+							}
+						}
+					}
+				}
+			}
+			//console.log($(".statu"));
+			/*if(status == "未开通") {
+				$(".statu").css("color", "#ccc")
+			} else if(status == "已签约") {
+				$(".statu").css("color", "blue")
+			} else {
+				$(".statu").css("color", "green")
+			}*/
+		}
+		//返回与回到顶部
+		_height = document.documentElement.clientHeight;
+		getQueryString = function(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return 1;
+		}
+		$(document).ready(function() {
+			if($("#addr").height() > 35)
+				$("#addrBox").height($("#addr").height() + 35);
+			page = getQueryString("page");
+		});
+
+		toMao = function() {
+			/*document.getElementById('holderform').scrollIntoView();*/
+			document.getElementsByTagName('body')[0].scrollIntoView();
+			/*整个body的高度*/
+			console.log(document.getElementsByTagName('body')[0].scrollHeight)
+		};
+
+		cancel = function() {
+			history.go(-1);
+			//$("#load").loading("/Holder/Holder?page=" + page + "");
+			return;
+		};
+	</script>
+
+</html>

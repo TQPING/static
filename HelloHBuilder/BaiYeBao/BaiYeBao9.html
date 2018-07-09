@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page9</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			
+			.Box{
+				position: relative;
+				margin: 1rem;
+				border: 1px solid #ccc;
+				border-radius: 10px 10px 0 0;
+			}
+			.delete{
+				position: absolute;
+			    right: 15px;
+			    top: 10px;
+			    padding: 2px 7px;
+			    color: #fff;
+			    background-color: #000;
+			    border-radius: 50%;
+			}
+			.title{
+				text-align: center;
+				color: #777;
+				font-size: 2rem;
+				padding: 1.5rem 0;
+			}
+			.mainBox{
+				margin: 0 2rem;
+			}
+			.tips,.tips2,.tips3,.tips4{
+				color: #d5671c;
+				background: #fee8dd;
+				font-size: 1.5rem;
+			}
+			.tips{
+				padding: 1rem;
+			}
+			.tips2{
+				padding: 1rem 0 0 1rem;
+			}
+			.tips3{
+				padding-left:1rem;
+			}
+			.tips4{
+				padding: 0 0 1rem 1rem;
+			}
+			.box_ul{
+				margin-top: 1rem;
+				color: #666;
+			}
+			.box_li{
+				border: 1px solid #ccc;
+				padding: 1rem 0 1rem 1rem;
+			}
+			.box_span1,.box_span2{
+				display: inline-block;
+			}
+			.box_span1{
+				width: 35%;
+				border-right: 1px solid #ccc;
+			}
+			.box_span2{
+				width: 60%;
+				padding-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="Box">
+			<h3 class="title">汇款订单</h3>
+			<span class="delete">X</span>
+			<div class="mainBox">
+				<p class="tips">1.请按提示信息向卖家付款</p>
+				<ul class="box_ul">
+					<li class="box_li">
+						<span class="box_span1">收款方户名</span>
+						<span class="box_span2">王辉</span>
+					</li>
+					<li class="box_li">
+						<span class="box_span1">收款方开户行</span>
+						<span class="box_span2">招商银行重庆分行金科十二坊支行</span>
+					</li>
+					<li class="box_li">
+						<span class="box_span1">收款方账号</span>
+						<span class="box_span2">621485123061751112</span>
+					</li>
+					<li class="box_li">
+						<span class="box_span1">转账金额</span>
+						<span class="box_span2">123654789</span>
+					</li>
+					<li class="box_li">
+						<span class="box_span1">汇款时备注内容</span>
+						<span class="box_span2">还摇到ID我我奥尔夫电脑上这款车美联储</span>
+					</li>
+					<li class="box_li">
+						<span class="box_span1">状态</span>
+						<span class="box_span2">待支付</span>
+					</li>
+				</ul>
+				<p class="tips2">2.卖家为认证商户，可放心付款；</p>
+				<p class="tips3">3.汇款时请一定要填写备注信息；</p>
+				<p class="tips4">4.卖家确认收到款后，自动充值。如超过24小时未收到币，请向客户反馈解决</p>
+			</div>
+		</div>
+	</body>
+</html>

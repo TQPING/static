@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>管理中心详情</title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul,li{
+			list-style: none;
+		}
+		#detail>li{
+			margin-top: 5px;
+		}
+		#table{
+			margin-top: 5px;border-collapse: collapse;text-align: center;
+		}
+		#th{
+			border: 1px solid #000;
+			padding: 3px;
+			display: inline-block;
+			width: 130px;
+			background: dodgerblue;
+			height: 50px;
+		}
+		#td{
+			border: 1px solid #000;
+			padding: 3px;
+			display: inline-block;
+			width: 130px;
+			height: 50px;
+		}
+		.tdHeight{
+			line-height: 50px;
+		}
+		.hadle{
+			color: blue;
+		}
+	</style>
+	<body>
+		<div id="content" style="margin: 20px 20px;">
+			<h1 style="padding-left: 20%;">管理中心列表</h1>
+			<div style="padding: 20px 0;">
+				<div style="display: inline-block;width: 300px;">
+					<div style="margin-top: 10px;">
+						注册手机号：<input type="text" style="display: inline-block;width: 150px;"/>
+					</div>
+					<div style="margin-top: 10px;">
+						法人姓名：<input type="text" style="display: inline-block;width: 150px;" />
+					</div>
+				</div>
+				<div style="display: inline-block;width: 300px;">
+					<div style="margin-top: 10px;">
+						法人姓名：<input type="text" style="display: inline-block;width: 150px;" />
+					</div>
+					<div style="margin-top: 10px;">
+						<span>状态：</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />已签约
+						</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />已签约
+						</span>
+						<span style="padding: 2px 20px;background: #ddd;margin-left: 10px;border: 1px solid #666;">
+							查询
+						</span>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div>
+				<div style="padding: 20px 0;color: red;display: inline-block;">共<span>2</span>条记录</div>
+				<div style="display: inline-block;float: right;padding: 20px 0;">
+					<span style="display: inline-block;width: 110px;text-align: center;background: #ddd;padding: 3px 0;border: 1px solid #666;">导出</span>
+					<span style="display: inline-block;width: 110px;text-align: center;background: #ddd;padding: 3px 0;border: 1px solid #666;">开通管理中心</span>
+				</div>
+			</div>
+			<ul id="detail">
+				<li>
+					<table id="table">
+						<tr>
+							<td id="th">管理中心名称</td>
+							<td id="th">注册手机号</td>
+							<td id="th">法人姓名</td>
+							<td id="th">状态</td>
+							<td id="th">操作</td>
+						</tr>
+						<tr>
+							<td id="td">四川省成都市武侯区管理中心</td>
+							<td id="td" class="tdHeight">15698756324</td>
+							<td id="td" class="tdHeight">武侯区</td>
+							<td id="td" class="tdHeight">已签约</td>
+							<td id="td" class="tdHeight hadle">
+								<span>编辑</span>
+								<span style="margin-left: 10px;">删除</span>
+							</td>
+						</tr>
+						<tr>
+							<td id="td">四川省成都市武侯区管理中心</td>
+							<td id="td" class="tdHeight">15698756324</td>
+							<td id="td" class="tdHeight">武侯区</td>
+							<td id="td" class="tdHeight">已签约</td>
+							<td id="td" class="tdHeight hadle">
+								<span>编辑</span>
+								<span style="margin-left: 10px;">删除</span>
+							</td>
+						</tr>
+					</table>
+				</li>
+			</ul>
+			
+		</div>
+	</body>
+</html>

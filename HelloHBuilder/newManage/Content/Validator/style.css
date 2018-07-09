@@ -1,0 +1,71 @@
+.chk_4 {
+    display: none;
+}
+
+
+/*******STYLE 4*******/
+.chk_4 + label {
+	background-color: #FFF;
+	padding: 11px 9px;
+	border-radius: 7px;
+	display: inline-block;
+	position: relative;
+	margin-right: 30px;
+	background: rgb(0,166,90);
+	width: 90px;
+	height: 30px;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(245, 146, 146, 0.4);
+}
+
+.chk_4 + label:before {
+	content: ' ';
+	position: absolute;
+	background: #FFF;
+	top: 0px;
+	left: 0px;
+	width: 24px;
+	color: #FFF;
+	height: 32px;
+	border-radius: 7px;
+	box-shadow: 0 0 1px rgba(0,0,0,0.6);
+}
+
+.chk_4 + label:after {
+	content: '启用';	
+	position: absolute;
+	top: 5px;
+	left: 37px;
+	font-size: 1em;
+	color: white;
+	font-weight: bold;
+	left: 8px;
+	padding: 5px;
+	top: 2px;
+	border-radius: 100px;
+}
+
+.chk_4:checked + label {
+	background: #F7836D;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(146, 196, 245, 0.4);
+}
+
+.chk_4:checked + label:after {
+	content: '禁用';
+	left: 10px;
+}
+
+.chk_4:checked + label:before {
+	content: ' ';
+	position: absolute;
+	left: 65px;
+}
+
+
+.chk_4 + label:after {
+	left: 35px;	
+}	
+
+#checkbox_d2 + label:after, #checkbox_d2 + label:before, #checkbox label {	
+	-webkit-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+}

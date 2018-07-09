@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page4</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/page4.css"/>
+		<script src="../js/common.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">添加信用卡</div>
+		</header>
+		<hr />
+		<div class="content">
+			<ul class="content-ul">
+				<li>
+					<span>信用卡卡号</span>
+					<input type="number" name="cardNum" id="cardNum" value="" placeholder="请输入信用卡卡号" />
+				</li>
+				<li>
+					<span>账单日</span>
+					<input type="text" name="check" id="check" value="" placeholder="请输入账单日期" />
+				</li>
+				<li>
+					<span>还款日</span>
+					<input type="text" name="repay" id="repay" value="" placeholder="请输入还款日期" />
+				</li>
+				<li>
+					<span>固定额度</span>
+					<input type="number" name="fasten" id="fasten" value="" placeholder="请输入信用卡额度" />
+				</li>
+				<li>
+					<span>临时额度</span>
+					<input type="number" name="interim" id="interim" value="" placeholder="请输入信用卡临时额度（若没有输入为0）" />
+				</li>
+				<li>
+					<span>临时到期</span>
+					<input type="number" name="expire" id="expire" value="" placeholder="请输入信用卡临额到期时间" />
+				</li>
+				<li>
+					<span>账单金额</span>
+					<input type="number" name="billAmount" id="billAmount" value="" placeholder="请输入当前账单金额" />
+				</li>
+				<li>
+					<span>手机号码</span>
+					<input type="number" name="telNum" id="telNum" value="" placeholder="请输入银行卡预留手机号" />
+				</li>
+				<li>
+					<span>验证码</span>
+					<input type="number" name="codeNum" id="codeNum" value="" placeholder="请输入验证码" />
+					<span id="sendCode">发送验证码</span>
+				</li>
+			</ul>
+		</div>
+		<div class="footer">
+			<span id="add-sure">
+				确认添加
+			</span>
+		</div>
+	</body>
+
+</html>

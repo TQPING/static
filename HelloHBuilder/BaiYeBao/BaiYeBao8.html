@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page8</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			
+			.box{
+				display: block;
+			}
+			header {
+				padding: 20px 10px;
+			}
+			
+			.goback {
+				color: #C0BFC4;
+				float: left;
+				font-size: 2.5rem;
+				margin-top: -0.5rem;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 1.8rem;
+			}
+			
+			hr {
+				height: 1rem;
+				background-color: #DDDDDD;
+				margin: 0;
+				border: 0;
+			}
+			
+			.content {
+				margin: 0 1rem;
+			}
+			
+			.content-ul>li {
+				padding: 1.5rem 0;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			.content>li:last-child {
+				border-bottom: none;
+			}
+			
+			.content-ul>li>span {
+				display: inline-block;
+				width: 22%;
+			}
+			
+			.content-ul>li>input {
+				border: none;
+				display: inline-block;
+				outline: none;
+				width: 75%;
+			}
+			
+			.content-ul>li:last-child>input {
+				width: 45%;
+			}
+			
+			.footer {
+				padding: 5rem 0;
+				text-align: center;
+			}
+			
+			#add-sure {
+				padding: 1rem 10rem;
+				border-radius: 5px;
+				color: #fff;
+				background-color: #D53C27;
+			}
+			
+			.QR_Code{
+				display: none;
+				text-align: center;
+				padding-top: 5rem;
+			}
+			.code_img{
+				width: 20rem;
+				height: 20rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">分享</div>
+		</header>
+		<hr />
+		<div class="box">
+			<div class="content">
+				<ul class="content-ul">
+					<li>
+						<span>角色选择</span>
+						<span>
+							<input type="radio" name="role" id="role" />商家
+						</span>
+						<span>
+							<input type="radio" name="role" id="role" />消费者
+						</span>
+						
+					</li>
+					<li>
+						<span>手机号</span>
+						<input type="text" maxlength="11" name="telUumber" id="telUumber" value="" placeholder="请输入手机号" />
+					</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<span id="add-sure">
+					确定
+				</span>
+			</div>
+		</div>
+		<div class="QR_Code">
+			<img class="code_img" src="../img/l2.png"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var sureBtn = document.querySelector("#add-sure");
+			var Box = document.querySelector(".box");
+			var qrCode = document.querySelector(".QR_Code");
+			sureBtn.onclick = function(){
+				Box.style.display = "none";
+				qrCode.style.display = "block";
+			}
+		}
+	</script>
+</html>

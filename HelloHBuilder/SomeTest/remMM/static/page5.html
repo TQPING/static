@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page5</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			.topall {
+				padding: 20px 10px 0;
+			}
+			
+			.goback {
+				color: #C0BFC4;
+				float: left;
+				font-size: 2.5rem;
+				margin-top: -0.5rem;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 1.8rem;
+			}
+			
+			.topmsg {
+				margin-top: 2rem;
+			}
+			
+			.topmsg_ul>li {
+				float: left;
+				width: 14%;
+				text-align: center;
+				font-size: 1.5rem;
+				color: #333;
+			}
+			
+			.topmsg_ul>li:first-child {
+				color: #d53c27;
+			}
+			
+			.content_box:before {
+				content: "";
+				display: block;
+				margin-top: 1.5rem;
+				height: 1rem;
+				background: #ddd;
+			}
+			.content{
+				margin: 0 1rem;
+			}
+			.content-top{
+				padding: 1.2rem 0;
+				border-bottom: 1px solid #ccc;
+			}		
+			.content-top,
+			.content-center {
+				color: #333;
+				padding: 1rem 0;
+			}
+			.content-main {
+				position: relative;
+			}
+			.content-center{
+				text-align: center;
+				border-bottom: 1px dotted #ccc;
+			}
+			.content-center>ul>li{
+				float: left;
+				width: 33%;
+				display: inline-block;
+			}
+			.s1{
+				width: 30px;
+			}
+			.s2 {
+				position: absolute;
+				top: 15%;
+				left: 40px;
+			}
+			.s3,.s4{
+				float: right;
+			    font-size: 1.5rem;
+			    font-weight: bolder;
+			}
+			.s3{
+			    color: #f0932f;
+			}
+			.s4{
+			    color: #D53C27;
+			}
+			.p1{
+				color: #777;
+			}
+			.p2{
+				padding-top: 0.5rem;
+				color: #D53C27;
+				font-weight: bolder;
+			}
+			.p3{
+				padding-top: 0.5rem;
+				font-weight: bolder;
+			}
+			.content-foot{
+				border-bottom: 1px dotted #ccc;
+			}
+			.content-foot,.content-four {
+				color: #777;
+				padding: 1rem 0;
+			}
+			.content-foot>ul>li {
+				float: left;
+				white-space: pre-wrap;
+				width: 50%;
+			}
+			.content-foot>ul>li:nth-child(3),.content-foot>ul>li:nth-child(4){
+				padding-top: 0.5rem;
+			}
+			.span1{
+				display: inline-block;
+				width: 50%;
+			}
+			.end,.end1{
+				padding-top: 0.5rem;
+			}
+			.start:before{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: orange;
+				margin-right: 20px;
+			}
+			.end:before{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: orange;
+				margin-right: 20px;
+			}
+			.end1:before{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ccc;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="topall">
+				<a class="goback">&lt;</a>
+				<div class="title">我的申请</div>
+				<div class="topmsg">
+					<ul class="clearfix topmsg_ul">
+						<li>全部</li>
+						<li>初审中</li>
+						<li>交资料</li>
+						<li>终审中</li>
+						<li>待放款</li>
+						<li>已成功</li>
+						<li>已失败</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="content_box">
+			<div class="content">
+				<ul>
+					<li class="content-top">
+						<div class="content-main">
+							<img class="s1" src="../pic/15.png" alt="" />
+							<span class="s2">中信银行-公积金贷款</span>
+							<span class="s4">已完成</span>
+						</div>
+					</li>
+					<li class="content-center">
+						<ul class="clearfix">
+							<li>
+								<p class="p1">申请额度</p>
+								<p class="p2">10000.00</p>
+							</li>
+							<li>
+								<p class="p1">可贷额度</p>
+								<p class="p2">10000.00</p>
+							</li>
+							<li>
+								<p class="p1">贷款利息</p>
+								<p class="p3">10000.00</p>
+							</li>
+						</ul>
+					</li>
+					<li class="content-foot">
+						<ul class="clearfix">
+							<li><span class="span1">还款方式</span>等额本息</li>
+							<li><span class="span1">还款期数</span>12期</li>
+							<li><span class="span1">服务费</span>120.00</li>
+							<li><span class="span1">服务费率</span>12%</li>
+						</ul>
+					</li>
+					<li class="content-four">
+						<ul class="clearfix">
+							<li class="start">
+								申请时间：2018-03-06 16:42:25
+							</li>
+							<li class="end">
+								结束时间：2018-03-06 16:42:25
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content_box">
+			<div class="content">
+				<ul>
+					<li class="content-top">
+						<div class="content-main">
+							<img class="s1" src="../pic/15.png" alt="" />
+							<span class="s2">中信银行-公积金贷款</span>
+							<span class="s3">初审中</span>
+						</div>
+					</li>
+					<li class="content-center">
+						<ul class="clearfix">
+							<li>
+								<p class="p1">申请额度</p>
+								<p class="p2">10000.00</p>
+							</li>
+							<li>
+								<p class="p1">可贷额度</p>
+								<p class="p2">10000.00</p>
+							</li>
+							<li>
+								<p class="p1">贷款利息</p>
+								<p class="p3">10000.00</p>
+							</li>
+						</ul>
+					</li>
+					<li class="content-foot">
+						<ul class="clearfix">
+							<li><span class="span1">还款方式</span>等额本息</li>
+							<li><span class="span1">还款期数</span>12期</li>
+							<li><span class="span1">服务费</span>120.00</li>
+							<li><span class="span1">服务费率</span>12%</li>
+						</ul>
+					</li>
+					<li class="content-four">
+						<ul class="clearfix">
+							<li class="start">
+								申请时间：2018-03-06 16:42:25
+							</li>
+							<li class="end1">
+								结束时间：2018-03-06 16:42:25
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>

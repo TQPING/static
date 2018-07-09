@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>列表</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			body {
+				margin: 1rem 2rem;
+			}
+			
+			.title_box{
+				position: relative;
+			}
+			
+			h4 {
+				padding: 1rem 0 2rem;
+				text-align: center;
+			}
+			
+			h4>input {
+				outline: none;
+			}
+			
+			.title_tips{
+				display: none;
+				position: absolute;
+				top: 3.5rem;
+				left: 1rem;
+				color: red;
+			}
+			
+			.table {
+				border-collapse: collapse;
+				background: #fff;
+				/*margin: 1.5rem 0 0 0;*/
+				width: 100%;
+				/*border:1px solid #999;*/
+			}
+			/*.th{
+				background-color: #ddd;
+			}*/
+			
+			.th,
+			.td {
+				text-align: center;
+				padding: 0.4rem 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="title_box">
+			<h4>日期：<input id="time1" oninput="Times()" type="date" value=""/>至<input id="time2" oninput="Times()" type="date" value=""/></h4>
+			<span class="title_tips">温馨提示：输入时间必须与当前时间相符</span>
+		</div>
+		<!--<h4>日期：<span>2018-03-01</span>~<span>2018-03-08</span></h4>-->
+		<!--<table class="table" border="1">-->
+		<table class="table">
+			<tr class="tr">
+				<th class="th">时间</th>
+				<th class="th">金额</th>
+				<th class="th">状态</th>
+			</tr>
+			<tr class="tr">
+				<td class="td">2018-02-25</td>
+				<td class="td">100000.00</td>
+				<td class="td">商家发货</td>
+			</tr>
+			<tr class="tr">
+				<td class="td">2018-03-02</td>
+				<td class="td">5652365.00</td>
+				<td class="td">商家发货</td>
+			</tr>
+			<tr class="tr">
+				<td class="td">2018-03-25</td>
+				<td class="td">58965478.00</td>
+				<td class="td">商家发货</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			function Times() {
+				var time1 = document.getElementById('time1').value;
+				var time2 = document.getElementById('time2').value;
+				
+				var nowTotle = new Date().getFullYear()+new Date().getMonth()+1 + new Date().getDate();
+				var time1Totle = new Date(time1).getFullYear()+new Date(time1).getMonth()+1 + new Date(time1).getDate();
+				/*var time2Totle = new Date(time2).getFullYear()+new Date(time2).getMonth()+1 + new Date(time2).getDate();*/
+				
+				console.log("nowTotle:"+nowTotle);
+				console.log("time1Totle:"+time1Totle);
+				
+				var time_1 = new Date(time1).getTime(); //1的时间戳
+				var time_2 = new Date(time2).getTime(); //2的时间戳
+				
+				if(time1Totle < nowTotle || time_1>time_2) {
+					document.querySelector(".title_tips").style.display = "block";
+				}else{
+					document.querySelector(".title_tips").style.display = "none";
+				}
+				
+				
+			}
+		</script>
+	</body>
+
+</html>

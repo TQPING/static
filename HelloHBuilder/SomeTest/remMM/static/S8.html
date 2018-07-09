@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>S8</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #fff;
+				font-size: 12px;
+				color: #333333;
+				font-family: "微软雅黑" "arial, helvetica, sans-serif" "blackadder itc";
+			}
+			
+			a,
+			a:hover,
+			a:active {
+				text-decoration: none;
+				color: #333333;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			
+			p {
+				margin: 0;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			header{
+				background: red;
+			}
+			.topall {
+				padding: 20px 10px 10px;
+			}
+			
+			.goback {
+				color: #fff;
+				float: left;
+				font-size: 25px;
+				margin-top: -5px;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+			}
+			.title_tex{
+				text-align: center;
+			}
+			.top_left,.top_right{
+				width: 49%;
+				float: left;
+				padding: 15px 0;
+				font-size: 16px;
+			}
+			.top_left>span,.top_right>span{
+				padding: 15px 0;
+			}
+			.active{
+				border-bottom: 2px solid red;
+			}
+			.days_logo{
+				padding: 12px;
+				text-align: right;
+				background: #F2F2F2;
+			}
+			.days_img{
+				width: 30px;
+				
+			}
+			.ul_box{
+				margin: 0 12px;
+			}
+			.ul_box>li{
+				border-bottom: 1px solid #ccc;
+			}
+			.first_li{
+				padding: 18px 0;
+			}
+			.span_txt1{
+				color: #333;
+			}
+			.span_txt2{
+				color: #666;
+				padding-left: 10px;
+			}
+			.span_txt3{
+				color: #333;
+				padding: 18px 0;
+			}
+			.span_txt4{
+				float: right;
+			}
+			.p1{
+				text-align: center;
+				color: #333;
+			}
+			.p2{
+				font-size: 30px;
+				color: #333;
+				padding: 10px 0 18px;
+				text-align: center;
+				font-weight: bold;
+			}
+			.third_li{
+				color: #333;
+			}
+			.p3{
+				padding-top: 18px;
+			}
+			.p3>span:last-child,.p4>span:last-child{
+				float: right;
+			}
+			.p4{
+				padding: 18px 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="topall">
+				<a class="goback">&lt;</a>
+				<div class="title">我的账单</div>
+		</header>
+		<div class="title_tex clearfix">
+			<div class="top_left">
+				<span>本期账单</span>
+			</div>
+			<div class="top_right">
+				<span class="active">历史账单</span>
+			</div>
+		</div>
+		<div class="days_logo">
+			<img class="days_img" src="../pic/littlePic.png" alt="" />
+		</div>
+		<div class="content">
+			<ul class="ul_box">
+				<li class="first_li">
+					<span class="span_txt1">合同编号</span>
+					<sapn class="span_txt2">12345678912365478965</sapn>
+				</li>
+				<li class="second_li">
+					<p class="span_txt3">
+						<span>5月账单04/07-05/07</span>
+						<span class="span_txt4">还款日05/20</span>
+					</p>
+					<p class="p1">当前还款金额</p>
+					<p class="p2">1000000.00</p>
+				</li>
+				<li class="third_li">
+					<p class="p3">
+						<span>
+							最低还款额
+						</span>
+						<span>
+							500.00
+						</span>
+					</p>
+					<p class="p3">
+						<span>
+							上期账单余额
+						</span>
+						<span>
+							1000000.00
+						</span>
+					</p>
+					<p class="p3">
+						<span>
+							上期账单全额还款金额
+						</span>
+						<span>
+							100000.00
+						</span>
+					</p>
+					<p class="p3">
+						<span>
+							当期全部应还款额
+						</span>
+						<span>
+							10000.00
+						</span>
+					</p>
+					<p class="p3">
+						<span>
+							是否已全额还款
+						</span>
+						<span>
+							否
+						</span>
+					</p>
+					<p class="p3">
+						<span>
+							逾期状态
+						</span>
+						<span>
+							部分还款
+						</span>
+					</p>
+					<p class="p4">
+						<span>
+							滞纳金金额
+						</span>
+						<span>
+							0.00
+						</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

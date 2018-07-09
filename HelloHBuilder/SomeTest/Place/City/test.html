@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="iosSelect.css" />
+		<script src="../../jquery-2.1.1.min.js"></script>
+		<script src="areaData_v2.js"></script>
+		<script src="iosSelect.js"></script>
+	</head>
+
+	<body>
+		<li class="aui-list-item address-box border-b-gray" style="padding: 5px 0 5px 0.75rem;background-size:100% 0px">
+			<div class="aui-list-item-inner aui-list-item-arrow" id="select_contact">
+				<div class="aui-list-item-title">所在地区</div>
+				<input type="hidden" name="contact_province_code" data-id="0001" id="contact_province_code" value="" data-province-name="">
+				<input type="hidden" name="contact_city_code" id="contact_city_code" value="" data-city-name="">
+				<div class="aui-list-item-right address-box-choose" data-city-code="500100" data-province-code="500000" data-district-code="500103" id="show_contact" style="font-size:0.7rem;color:#999999">请选择所在地区</div>
+			</div>
+		</li>
+
+		
+		<script type="text/javascript">
+			var province = "";
+			var city = "";
+			var area = "";
+
+			var selectContactDom = $('#select_contact');
+			var showContactDom = $('#show_contact');
+			var contactProvinceCodeDom = $('#contact_province_code');
+			var contactCityCodeDom = $('#contact_city_code');
+			selectContactDom.bind('click', function() {
+				var sccode = showContactDom.attr('data-city-code');
+				var scname = showContactDom.attr('data-city-name');
+
+				var oneLevelId = showContactDom.attr('data-province-code');
+				var twoLevelId = showContactDom.attr('data-city-code');
+				var threeLevelId = showContactDom.attr('data-district-code');
+				var iosSelect = new IosSelect(3, [iosProvinces, iosCitys, iosCountys], {
+					title: '地址选择',
+					itemHeight: 35,
+					relation: [1, 1, 0, 0],
+					oneLevelId: oneLevelId,
+					twoLevelId: twoLevelId,
+					threeLevelId: threeLevelId,
+					callback: function(selectOneObj, selectTwoObj, selectThreeObj) {
+						contactProvinceCodeDom.val(selectOneObj.id);
+						contactProvinceCodeDom.attr('data-province-name', selectOneObj.value);
+						contactCityCodeDom.val(selectTwoObj.id);
+						contactCityCodeDom.attr('data-city-name', selectTwoObj.value);
+
+						showContactDom.attr('data-province-code', selectOneObj.id);
+						showContactDom.attr('data-city-code', selectTwoObj.id);
+						showContactDom.attr('data-district-code', selectThreeObj.id);
+						showContactDom.html(selectOneObj.value + ' ' + selectTwoObj.value + ' ' + selectThreeObj.value);
+						$("#show_contact").css("color", "#333");
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

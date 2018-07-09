@@ -1,0 +1,24 @@
+{
+    "name":"2018春装新款气质修身蕾丝连衣裙春秋中长款收腰显瘦A字打底裙",
+    "originPrice":"179.80",
+    "currentPrice":"79.80",
+    "isOfficial":"0",
+    "headerImages":[
+       "PIC/32.jpg",
+       "PIC/15.jpg",
+       "PIC/16.jpg",
+       "PIC/17.jpg",
+       "PIC/18.jpg",
+       "PIC/19.jpg"
+    ],
+    
+    "detail":"String HTML 详情内容",
+    "coupons":[
+        {
+            "url":"http://localhost:3000",
+            "desc":"String 优惠券描述",
+            "price":"100元券"
+        }
+    ]
+
+}

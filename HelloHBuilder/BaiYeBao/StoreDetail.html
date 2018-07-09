@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>审核店长详情</title>
+		<script src="jquery-2.1.1.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			.header {
+				margin: 2rem;
+				border: 1px solid #ccc;
+				padding: 1rem;
+			}
+			
+			.header>div {
+				float: left;
+			}
+			
+			.head_left {
+				width: 7rem;
+				height: 7rem;
+			}
+			
+			.head_left>img {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+			
+			.head_right {
+				margin-left: 2rem;
+			}
+			
+			.role {
+				padding: 0 10px;
+				margin-left: 10px;
+				background: orange;
+				border-radius: 4px;
+				color: #fff;
+			}
+			
+			.role_detail>li {
+				float: left;
+				color: #999;
+			}
+			
+			.role_detail>li:first-child {
+				width: 20rem;
+			}
+			
+			.role_detail>li:last-child {
+				width: 45rem;
+			}
+			
+			.head_right_two {
+				padding-top: 1.3rem;
+			}
+			
+			.head_right_three {
+				padding-top: 0.5rem;
+			}
+			
+			.schedule {
+				margin: 0 3rem;
+			}
+			
+			.line_one {
+				height: 5px;
+				background: dodgerblue;
+				width: 50%;
+				border-radius: 2px;
+				margin-top: -5px;
+			}
+			
+			.line_g {
+				margin-top: 1rem;
+				width: 100%;
+				height: 5px;
+				background: #ccc;
+			}
+			
+			.schedule_msg>li,
+			.schedule_year>li,
+			.schedule_hour>li {
+				float: left;
+				width: 33%;
+				padding-top: 5px;
+			}
+			
+			.schedule_msg>li {
+				color: #666;
+			}
+			
+			.schedule_year>li,
+			.schedule_hour>li {
+				color: #999;
+			}
+			
+			.schedule_center {
+				text-align: center;
+			}
+			
+			.schedule_right {
+				text-align: right;
+			}
+			
+			.basic_info {
+				margin: 2rem 5rem 0;
+			}
+			
+			.info_ul {
+				margin-top: 2rem;
+			}
+			
+			.info_ul>li {
+				margin-top: 10px;
+			}
+			
+			.credentials {
+				margin-top: 2rem;
+			}
+			
+			.credentials>h5 {
+				color: dodgerblue;
+			}
+			
+			.ID_img {
+				width: 240px;
+				height: 240px;
+				margin: 2rem 2rem 0;
+				position: relative;
+			}
+			
+			.small_img {
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+			
+			.big_img {
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			
+			.remark {
+				margin: 6rem;
+			}
+			
+			.remark_input {
+				display: inline-block;
+				width: 80%;
+				height: 25px;
+				outline: none;
+			}
+			
+			.audit,
+			.egis,
+			.notpass {
+				text-align: center;
+				margin-top: 6rem;
+			}
+			
+			.audit>span,
+			.egis>span,
+			.notpass>span {
+				padding: 15px 65px;
+				background: #ddd;
+				border: 1px solid #999;
+			}
+			
+			.unsussaudit,
+			.unsussegis {
+				margin-left: 3rem;
+			}
+			
+			.tablebox {
+				margin: 5rem;
+			}
+			
+			.tablebox>h3 {
+				margin-left: 10%;
+			}
+			
+			#table {
+				border-collapse: collapse;
+				background: #fff;
+				margin: 20px 0 0 10%;
+				width: 80%;
+				border: 1px solid #ccc;
+				color: #666;
+			}
+			
+			.top {
+				height: 50px;
+				line-height: 30px;
+				text-align: center;
+				background: #ddd;
+			}
+			
+			.tr {
+				height: 60px;
+				line-height: 30px;
+				text-align: center;
+				background-color: #FFF;
+			}
+			
+			.one {
+				width: 6%;
+			}
+			
+			.two,
+			.three,
+			.four {
+				width: 10%;
+			}
+			
+			.five {
+				width: 14%;
+			}
+			
+			.sixBe {
+				width: 30%;
+				text-align: left;
+				text-indent: 2em;
+			}
+			
+			.circle {
+				display: block;
+				margin-left: 47%;
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+			}
+			/*红色的圆圈*/
+			
+			.circlered {
+				border: 3px solid red;
+			}
+			/*绿色的圆圈*/
+			
+			.circlegreen {
+				border: 3px solid limegreen;
+			}
+			/*加在执行结果前面的圆点 红色*/
+			
+			.reddotted::before {
+				content: "";
+				display: inline-block;
+				border: 3px solid red;
+				border-radius: 50%;
+				margin-right: 5px;
+			}
+			/*加在执行结果前面的圆点 绿色*/
+			
+			.greendotted::before {
+				content: "";
+				display: inline-block;
+				border: 3px solid limegreen;
+				border-radius: 50%;
+				margin-right: 5px;
+			}
+			
+			#mask {
+				display: none;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				background: #000;
+				opacity: 0.5;
+				z-index: 2;
+			}
+			
+			.sussaudit_t,.sussegis_t {
+				position: fixed;
+				width: 40%;
+				height: 400px;
+				left: 30%;
+				display: none;
+				background: #fff;
+				z-index: 2;
+			}
+			
+			.sussaudit_t>p {
+				text-align: center;
+				padding: 10rem 0;
+				font-size: 2.5rem;
+				color: #666;
+			}
+			
+			.auditbtnbox {
+				text-align: center;
+			}
+			
+			.auditbtnbox>span,.egisbtnbox>span {
+				display: inline-block;
+				background: #DDDDDD;
+				width: 10rem;
+				padding: 8px 0;
+			}
+			.auditbtnbox>span:last-child,.egisbtnbox>span:last-child{
+				margin-left: 40px;
+			}
+			.unsussegis_ts{
+				
+			}
+			.unsussegis_ts{
+				color: #999;
+			}
+			.sussegis_t>h4{
+				padding: 20px 0;
+				margin-left: 10%;
+				color: sandybrown;
+			}
+			.sussegis_t>p{
+				margin-left: 10%;
+			}
+			.sussegis_t>textarea{
+				width: 80%;
+				height: 100px;
+				margin-left: 10%;
+			}
+			.egisbtnbox{
+				text-align: center;
+    			padding-top: 5rem;
+			}
+			
+			
+			.chose_down{
+				position: fixed;
+				bottom: 1rem;
+				border: 1px solid #fff;
+				right: 0;
+				display:block;
+				width:15rem;
+				text-align: center;
+				padding: 5px 0;
+				z-index: 100;
+				background-color: cornflowerblue;
+			}
+			.chose_ul{
+				color: #fff;
+				position: fixed;
+				bottom: -4rem;
+				right: 0;
+				opacity: 0;
+				background-color: cornflowerblue;
+			}
+			.chose_li{
+				border: 1px solid #fff;
+				width:15rem;
+				text-align: center;
+				padding: 5px 0;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		
+		<!--btn选择操作类型-->
+		<span class="chose_down">选择操作类型</span>
+		<ul class="chose_ul">
+			<li class="chose_li">选择操作类型</li>
+			<li class="chose_li">fcdszfcds</li>
+			<li class="chose_li">dsgrfdrgferr</li>
+		</ul>
+		
+		<div id="mask" onclick="cel()"></div>
+		<div class="header clearfix">
+			<div class="head_left">
+				<img src="../img/l3.png" alt="" />
+			</div>
+			<div class="head_right">
+				<ul>
+					<li class="head_right_one">
+						<b>YUKI</b>
+						<sapn class="role">商家</sapn>
+					</li>
+					<li class="head_right_two">
+						<ul class="clearfix role_detail">
+							<li>
+								百业宝ID：<span class="role_ID">25462</span>
+							</li>
+							<li>
+								账号拥有角色：<span class="owner_role">商家 20000.00幸福花 | 消费者 20000.00幸福花</span>
+							</li>
+						</ul>
+					</li>
+					<li class="head_right_three">
+						<ul class="clearfix role_detail">
+							<li>登陆手机号：<span class="login_tel">13654896523</span></li>
+							<li>
+								注册时间：<span>2.16-12-03 12:45</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="schedule">
+			<h3>处理进度</h3>
+			<div class="line_box">
+				<div class="line_g"></div>
+				<div class="line_one"></div>
+				<ul class="clearfix schedule_msg">
+					<li class="schedule_left">提交申请</li>
+					<li class="schedule_center">审核通过</li>
+					<li class="schedule_right">已完成</li>
+				</ul>
+				<ul class="clearfix schedule_year">
+					<li class="schedule_left">2016-12-12</li>
+					<li class="schedule_center">2017-01-23</li>
+					<li class="schedule_right">2017-01-31</li>
+				</ul>
+				<ul class="clearfix schedule_hour">
+					<li class="schedule_left">12:12</li>
+					<li class="schedule_center">09:56</li>
+					<li class="schedule_right">15:56</li>
+				</ul>
+			</div>
+		</div>
+		<div class="basic_info">
+			<b>基本资料</b>
+			<ul class="info_ul">
+				<li>真实姓名：<span>YUKI</span></li>
+				<li>身份证号：<span>123654789658963254</span></li>
+				<li>手机号：<span>12365478965</span></li>
+			</ul>
+			<div class="credentials">
+				<h5>相关证件</h5>
+				<div class="ID_img">
+					<img class="small_img" src="../img/l1.png" alt="" onclick="seePic()" />
+					<img class="big_img" src="../img/l1.png" alt="" onclick="closePic()" />
+				</div>
+			</div>
+		</div>
+		<div class="remark">
+			审批备注：<input class="remark_input" type="text" placeholder="请输入" />
+		</div>
+		<div class="audit">
+			<span class="sussaudit">审核通过</span>
+			<span class="unsussaudit">审核不通过</span>
+		</div>
+		<div class="egis">
+			<span class="sussegis">提交</span>
+			<span class="unsussegis">返回</span>
+		</div>
+		<!--审核通过弹窗-->
+		<div class="sussaudit_t">
+			<p>此操作不可恢复，请仔细确认</p>
+			<div class="auditbtnbox">
+				<span class="sussaudit_ts" onclick="cel()">取消</span>
+				<span class="unsussaudit_ts">确定通过审核</span>
+			</div>
+		</div>
+		<!--审核不通过弹窗-->
+		<div class="sussegis_t">
+			<h4>此操作不可恢复，请仔细确认</h4>
+			<p>请填写未通过原因：</p>
+			<textarea name="egis" id="egismsg"></textarea>
+			<div class="egisbtnbox">
+				<span class="sussegis_ts" onclick="cel()">取消</span>
+				<span class="unsussegis_ts">确认拒绝申请</span>
+			</div>
+		</div>
+
+		<div class="notpass">
+			<span class="backnotpass">返回</span>
+		</div>
+
+		<div class="tablebox">
+			<h3>操作日志简</h3>
+			<table id="table" border="1">
+				<tr class="top">
+					<th class="one"></th>
+					<th class="two">操作类型</th>
+					<th class="three">操作人</th>
+					<th class="four">执行结果</th>
+					<th class="five">操作时间</th>
+					<th class="six">备注</th>
+				</tr>
+				<tr class="tr">
+					<td class="one">
+						<span class="circle circlered"></span>
+					</td>
+					<td class="two">
+						审核
+					</td>
+					<td class="three">
+						水电费
+					</td>
+					<td class="four reddotted">驳回申请</td>
+					<td class="five">2017-12-12 08:50:12</td>
+					<td class="six sixBe">备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</td>
+				</tr>
+				<tr class="tr">
+					<td class="one">
+						<span class="circle circlegreen "></span>
+					</td>
+					<td class="two">
+						审核
+					</td>
+					<td class="three">
+						水电费
+					</td>
+					<td class="four greendotted">审核通过</td>
+					<td class="five">2017-12-12 08:50:12</td>
+					<td class="six sixBe">备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</td>
+				</tr>
+				<tr class="tr">
+					<td class="one">
+						<span class="circle circlegreen"></span>
+					</td>
+					<td class="two">
+						商品自营
+					</td>
+					<td class="three">
+						水电费
+					</td>
+					<td class="four greendotted">提交成功</td>
+					<td class="five">2017-12-12 08:50:12</td>
+					<td class="six sixBe">备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</td>
+				</tr>
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			$(".chose_down").click(function () {
+				if($(".chose_ul").css("opacity") == 0){
+					$(".chose_ul").animate({bottom:'3.5rem',opacity:'1'},1000);
+				}else{
+					$(".chose_ul").animate({bottom:'-4rem',opacity:'0'},1000)
+				}
+		        
+		    });
+		    
+			var height = "";
+			window.onresize = function size() {
+				height = $("html").height();
+			};
+			//查看大图
+			seePic = function() {
+				$(".small_img").animate({opacity:'0'},1000);
+				$(".big_img").animate({opacity:'1',top: '10%',left: '30%'},1000);
+				$(".big_img").show();
+				$(".small_img").hide();
+			}
+			//关闭大图
+			closePic = function() {
+				$(".small_img").animate({opacity:'1'},1000);
+				$(".big_img").animate({opacity:'0',top: '0',left: '0'},1000);
+				$(".big_img").hide();
+				$(".small_img").show();
+			}
+			
+			//点击按钮审核通过与否
+			$(".audit").on("click","span", function() {
+				if($(this).text() == "审核通过") {
+					Sussaudit();
+				} else if($(this).text() == "审核不通过") {
+					unSussaudit();
+				}
+			});
+			
+			//点击按钮审核第二次通过与否
+			$(".egis").on("click","span", function() {
+				if($(this).text() == "提交") {
+					Sussaudit();
+				} else if($(this).text() == "返回") {
+					unSussaudit();
+				}
+			})
+			//审核通过弹窗
+			Sussaudit = function() {
+				height = $("html").height();
+				$("#mask").css("height", height);
+				$("#mask").show();
+				$(".sussaudit_t").css("top", "200px");
+				$(".sussaudit_t").show();
+				$("html").css("overflow", "hidden");
+			}
+			//审核不通过弹窗
+			
+			unSussaudit = function() {
+				$("#egismsg").val("");
+				height = $("html").css("height");
+				$("#mask").css("height", height);
+				$("#mask").show();
+				$(".sussegis_t").css("top", "200px")
+				$(".sussegis_t").show();
+				$("html").css("overflow", "hidden");
+			}
+			//点击遮罩取消
+			function cel() {
+				$("#egismsg").val("");
+				$("#mask").hide();
+				$("html").css("overflow", "auto");
+				$(".sussaudit_t").hide();
+				$(".sussegis_t").hide();
+			}
+			//判断文本域中是否有值，确定按钮是否可点击
+			$("#egismsg").on("input", function(){
+				console.log($("#egismsg").val())
+				if($("#egismsg").val() != ""){
+					$(".unsussegis_ts").css("color","#000");
+				}else{
+					$(".unsussegis_ts").css("color","#999");
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

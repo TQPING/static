@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-touch-fullscreen">    
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+		<title>零钱</title>
+		<style  type="text/css">
+			body{margin: 0;padding: 0;font-size: 16px;}
+			a {
+				text-decoration: none;color: #000000;
+			}
+			ul,li {
+				list-style: none;
+				margin: 0;padding: 0;
+			}
+			p,div{margin: 0;padding: 0;}
+			/*清除浮动代码*/
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			header{
+				background-color: #FFFFFF;
+				line-height: 46px;
+				font-size: 16px;
+				padding: 0 12px;
+				text-align: center;
+				border-bottom: 1px solid #CECECE;
+			}
+			header span{float: left;}
+			header .head_c{display: inline-block;font-weight: bold;}
+			header .head_r{float: right;}
+			
+			.tab_ul{line-height: 46px;border-bottom: 1px solid #CECECE;}
+			.tab_ul>li{float: left;width: 50%;text-align: center;}
+			.active{border-bottom: 2px solid #D53C27;color: #D53C27;}
+			.img_icon{margin: 70px auto 0;width: 60px;}
+			.img_icon img{width: 100%;}
+			.det_box{text-align: center;margin: 20px 0 10px;color: #333333;}
+			.num_box{text-align: center;}
+			.num_box .num_det{font-size: 20px;}
+			.btn{
+				margin: 50px auto 0;
+				background-color: #E94B2E;
+				line-height: 46px;text-align: center;
+				color: #FFFFFF;font-size: 16px;
+				width: 90%;border-radius: 25px;
+			}
+			.check_det{text-align: right;margin: 20px 16px;}
+		</style>
+	</head>
+	<body>
+		<header class="clearfix">
+			<span>&lt;</span>
+			<p class="head_c">零钱</p>
+			<p class="head_r">收入及体现明细</p>
+		</header>
+		<ul class="tab_ul clearfix">
+			<li>可提现红包</li>
+			<li class="active">待结算红包</li>
+		</ul>
+		<div class="main">
+			<div class="img_icon"><img src="icon_pocket.png"/></div>
+			<div class="det_box">待结算红包</div>
+			<div class="num_box"><span>￥</span><span class="num_det">520.22</span></div>
+		</div>
+		<div class="check_det">查看明细  &gt;</div>
+	</body>
+</html>

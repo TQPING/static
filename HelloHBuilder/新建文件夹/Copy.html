@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>复制粘贴</title>
+		<style type="text/css">
+			.tips{
+				position: relative;
+			}
+			#Copy{
+				padding: 3px 10px;border-radius: 4px;background: blanchedalmond;float: right;
+			}
+			#copyTips{
+				position: absolute;top: 30px;right: 0;font-size: 12px;display: none;
+			}
+			#PasteCon{
+				outline: none;display: block;width: 80%;margin: auto;min-height: 150px;
+			}
+			#Paste{
+				padding: 3px 10px;border-radius: 4px;background: blanchedalmond;float: right;margin-top: -25px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			1.凤兮凤兮归故乡，遨游四海求其凰 2.三尺长剑，斩不尽相思情缠 3.邂逅你，是生生世世的宿命 4.长歌当哭，为君仗剑试天下 5.永生不过是场幻梦，唯吾所爱不朽 6.觅得苍天，踏破碧落黄泉 7.何以缘起，何以缘灭，当以剑歌问之 8.直至地老天荒，独剩你我 9.剑之所去，心之所往 10.有凤（后面两字听不清，不确定） 阵亡.我买醉或为你买醉（不确定）
+		</div>
+		<div class="tips">
+			<span id="Copy">复制</span>
+			<span id="copyTips">复制成功</span>
+		</div>
+		<textarea id="PasteCon" name="" rows="" cols="" value=""></textarea>
+		<span id="Paste">粘贴</span>
+	</body>
+	<script type="text/javascript">
+		String.prototype.trim = function() {
+			var str = this,
+				str = str.replace(/^\s+/, '');
+			for(var i = str.length - 1; i >= 0; i--) {
+				if(/\S/.test(str.charAt(i))) {
+					str = str.substring(0, i + 1);
+					break;
+				}
+			}
+			return str;
+		}
+
+		var txt = '';
+		document.querySelector("#Copy").onclick = function() {
+			txt = document.querySelector(".content").textContent;
+			if(txt != ""){
+				document.querySelector("#copyTips").style.display = "block";
+				setTimeout(function(){
+					document.querySelector("#copyTips").style.display = "none";
+				},500);
+			}else{
+				return;
+			}
+		}
+
+		document.querySelector("#Paste").onclick = function() {
+			if(txt != ""){
+				txt = txt.trim();
+				document.querySelector("#PasteCon").value = txt;
+			}else{
+				return;
+			}
+		}
+	</script>
+
+</html>

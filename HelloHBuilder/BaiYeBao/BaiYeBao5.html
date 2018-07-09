@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>自动推送消息模板</title>
+		
+		<style type="text/css">
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			ul li{
+				list-style: none;
+				
+			}
+			
+			/*清除浮动代码*/
+			.clearfix:after{
+			   content:".";/*加一段内容*/
+			   display:block;/*让生成的元素以块级元素显示，占满剩余空间*/
+			   height:0;/*避免生成的内容破坏原有布局高度*/
+			   clear:both;/*清除浮动*/
+			   visibility:hidden;/*让生成的内容不可见*/
+			  }
+			  .clearfix{zoom:1;/*为IE6，7的兼容性设置*/}
+			
+			
+			
+			body{
+				margin: 1rem 2rem;
+			}
+			.title{
+				padding: 0.3rem;
+			}
+			.title>input{
+				margin-left: 1rem;
+			}
+			.btn{
+				padding: 0 1rem;
+			}
+			.table{
+				border-collapse: collapse;
+				background: #fff;
+				margin: 1.5rem 0 0 0;
+				width: 100%;
+				border:1px solid #999;
+			}
+			.th{
+				background-color: #ddd;
+			}
+			.th,.td{
+				text-align: center;
+				padding: 0.4rem 0;
+			}
+			.td-revise{
+				color: dodgerblue;
+			}
+			.td-span{
+				color: dodgerblue;
+				margin-left: 1rem;
+			}
+			.td-revise:hover,.td-span:hover{
+				cursor: pointer;
+			}
+			#mask{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: #000;
+				opacity: 0.5;
+				display: none;
+			}
+			.revise-content{
+				z-index: 3;
+				position: absolute;
+				top: 3rem;
+				left: 20%;
+				width: 60%;
+				background-color: #fff;
+				border: 1px solid #000;
+				padding: 2rem;
+				display: none;
+			}
+			.re-title>li{
+				float: left;
+				width: 33%;
+				text-align: center;
+			}
+			.re-span{
+				margin-left: 1.5rem;
+				outline: none;
+			}
+			.re-p{
+				padding-top: 1rem;
+			}
+			.re-p>span{
+				display: inline-block;
+				width: 5rem;
+				text-align: right;
+				float: left;
+			}
+			.p-input{
+				margin-left: 2rem;
+			}
+			.p-title{
+				margin-left: 2rem;
+				display: inline-block;
+				width: 80%;
+				outline: none;
+				padding: 3px 0;
+			}
+			.content-chose{
+				margin-top: 1.5rem;
+				position: relative;
+			}
+			.ul1,.ul2,.ul3,.ul4{
+				margin-left: 80px;
+			}
+			.ul-title{
+				position: absolute;
+			    left: 0px;
+			    width: 60px;
+			    text-align: right;
+			}
+			.ul-box{
+				position: relative;
+				margin-top: 2rem;
+			}
+			.ul1>li{
+				float: left;
+				width: 13%;
+				border: 1px solid #ddd;
+				border-radius: 5px 5px 0 0;
+				text-align: center;
+				padding: 3px 0;
+			}
+			.ul1>li:hover,.ul2>li:hover,.ul3>li:hover,.ul4>li:hover{
+				cursor: pointer;
+			}
+			.ul2>li{
+				float: left;
+				text-align: center;
+				border: 1px solid #ccc;
+				padding: 3px 5px;
+				background-color: #ddd;
+				margin-right: 1px;
+			}
+			textarea{
+				outline: none;
+				display: block;
+				width: 78%;
+				margin-top: 1rem;
+				margin-left: 11%;
+			}
+			.txtare1{
+				min-height: 150px;
+			}
+			.tips{
+				margin-left: 12%;
+			}
+			.txtare2,.txtare3{
+				min-height: 50px;
+			}
+			.ul3>li,.ul4>li{
+				float: left;
+				text-align: center;
+				border: 1px solid #ccc;
+				padding: 3px 5px;
+				background-color: #ddd;
+				margin-right: 1px;
+			}
+			.btn-box{
+				margin-top: 2rem;
+				text-align: center;
+			}
+			.btn-save{
+				padding: 3px 20px;
+			}
+			.btn-close{
+				margin-left: 2rem;
+				padding: 3px 20px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			<p class="title">
+				<span>消息类型</span>
+				<input type="checkbox" value="system" />系统消息
+				<input type="checkbox" value="order" />订单消息
+				<input type="checkbox" value="declaration" />报单消息
+				<input type="checkbox" value="goods" />商品消息
+				<input type="checkbox" value="buyback" />回购消息
+				<input type="checkbox" value="regifted" />转赠消息
+				<input type="checkbox" value="invite" />邀请消息
+			</p>
+			<p class="title">
+				<span>目标用户</span>
+				<input type="checkbox" value="customer" />消费者
+				<input type="checkbox" value="seller" />商家
+				<input type="checkbox" value="canal" />渠道用户
+			</p>
+			<p class="title">
+				<span>目标用户</span>
+				<input type="radio" value="all" name="target" />全部
+				<input type="radio" value="open" name="target" />启用
+				<input type="radio" value="close" name="target" />禁用
+				<input class="btn" type="button" value="搜索" />
+			</p>
+		</div>
+		<div class="content">
+			<table class="table" border="1">
+				<tr class="tr">
+					<th class="th">状态</th>
+					<th class="th">分类</th>
+					<th class="th">名称</th>
+					<th class="th">目标用户</th>
+					<th class="th">概要</th>
+					<th class="th">操作</th>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">启用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">禁用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="td handle">禁用</td>
+					<td class="td">订单消息</td>
+					<td class="td">商家发货</td>
+					<td class="td">消费者</td>
+					<td class="td">xxxxxxxxxx</td>
+					<td class="td clearfix">
+						<span class="td-revise">修改</span>
+						<span class="td-span">启用</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="mask"></div>
+		<div class="revise-content">
+			<ul class="clearfix re-title">
+				<li>
+					名称<span class="re-name re-span">商家名称</span>
+				</li>
+				<li>目标用户
+					<select class="re-aim re-span" name="aim">
+						<option value="消费者">消费者</option>
+						<option value="商家">商家</option>
+						<option value="渠道用户">渠道用户</option>
+					</select>
+				</li>
+				<li>消息类型
+					<select class="re-msg re-span" name="msg">
+						<option value="系统消息">系统消息</option>
+						<option value="订单消息">订单消息</option>
+						<option value="报单消息">报单消息</option>
+						<option value="商品消息">商品消息</option>
+						<option value="回购消息">回购消息</option>
+						<option value="转赠消息">转赠消息</option>
+						<option value="邀请消息">邀请消息</option>
+					</select>
+				</li>
+			</ul>
+			<p class="re-p clearfix">
+				<span>推送形式</span> 
+				<input class="p-input" type="checkbox" value="APP推送" />APP推送
+				<input class="p-input" type="checkbox" value="站内信" />站内信
+			</p>
+			<p class="re-p clearfix">
+				<span>标题</span>
+				<input class="p-title" type="text" maxlength="16" placeholder="标题限制最多可输入16字" />
+				
+			</p>
+			<div class="content-chose">
+				<span class="ul-title">内容</span>
+				<ul class="ul1 clearfix">
+					<li data-id="1">用户信息</li>
+					<li data-id="2">订单信息</li>
+					<li data-id="3">商品信息</li>
+					<li data-id="4">报单信息</li>
+					<li data-id="5">转赠信息</li>
+					<li data-id="6">回购信息</li>
+					<li data-id="7">邀请信息</li>
+				</ul>
+				<ul class="ul2 clearfix">
+					<li data-id="sds">用户号</li>
+						<li data-id="sdc">手机号</li>
+						<li data-id="scf">今日收益幸福果</li>
+						<li data-id="sls">累计收益幸福果</li>
+						<li data-id="sgs">消费次数</li>
+						<li data-id="ads">剩余幸福花</li>
+						<li data-id="dds">剩余幸福果</li>
+						<li data-id="fds">注册天数</li>
+						<li data-id="dgs">最近登录天数</li>
+				</ul>
+				<textarea class="txtare1"></textarea>
+				<p class="tips">建议字数30字</p>
+				<div class="ul-box">
+					<span class="ul-title">跳转链接</span>
+					<ul class="ul3 clearfix">
+						<li>积分商城首页</li>
+						<li>个人中心页</li>
+						<li>订单列表页</li>
+						<li>订单详情页</li>
+						<li>兑换列表页</li>
+						<li>兑换详情页</li>
+						<li>报单列表页</li>
+						<li>报单详情页</li>
+						<li>我的幸福果</li>
+						<li>我的幸福花</li>
+						<li>回购</li>
+					</ul>
+				</div>
+				<textarea class="txtare2"></textarea>
+				<div class="ul-box">
+					<span class="ul-title">跳转链接</span>
+					<ul class="ul4 clearfix">
+						<li>商家首页</li>
+						<li>店铺资产页</li>
+						<li>订单列表页</li>
+						<li>订单详情页</li>
+						<li>报单列表页</li>
+						<li>报单详情页</li>
+						<li>商品列表页</li>
+						<li>商品详情页</li>
+						<li>我的幸福果</li>
+						<li>我的幸福花</li>
+						<li>回购</li>
+					</ul>
+				</div>
+				<textarea class="txtare3"></textarea>
+				<div class="btn-box clearfix">
+					<button class="btn-save">保存</button>
+					<button class="btn-close">关闭</button>
+				</div>				
+			</div>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		document.querySelector(".ul1>li:nth-child(1)").style.backgroundColor = "#ddd";
+		var mask = document.querySelector("#mask");//遮罩层
+		var reviseContent = document.querySelector(".revise-content")
+		//根据启用或禁用来调整字体颜色
+		var handle = document.querySelectorAll(".handle");
+		for(var i=0 ; i<handle.length ; i++){
+			/*console.log(handle[i].innerHTML);*/
+			if(handle[i].innerHTML=='禁用'){
+				handle[i].style.color = "indianred"	;
+			}else{
+				handle[i].style.color = "green"	;
+			}
+		};
+		
+		//根据窗口大小来调整mask的宽高
+		function showmask(){
+			var height = window.innerHeight;
+			var width = window.innerWidth;
+			mask.style.height = height + "px";
+			mask.style.width = width + "px";
+		}
+		showmask();
+		window.onresize = showmask;
+		
+		//过滤空白文本节点
+		function filterSpaceNode(nodes) {  
+		    var arr = [];  
+		    for(var i=0;i<nodes.length;i++) {  
+		        if (nodes[i].nodeType===3 && /^\s+$/.test(nodes[i].nodeValue)) {  
+		       		continue;  
+				}  
+		    	arr.push(nodes[i]);  
+		     
+		    }  
+			return arr;  
+		} 
+		
+		//点击tab切换
+		var tab1 = document.querySelector(".ul1");
+		tab1.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			var ul2 = document.querySelector(".ul2");
+			if(target.nodeName.toLowerCase() == "li"){
+				var ul1 = document.querySelector(".ul1").childNodes;
+				ul1 = filterSpaceNode(ul1);
+				for(var i=0;i<ul1.length;i++){
+					ul1[i].style.backgroundColor = "";
+				}
+			    target.style.backgroundColor = "#ddd";
+			    var dataId = target.getAttribute("data-id");
+			    if(dataId == "1"){
+			    	html = `<li data-id="sds">用户号</li>
+							<li data-id="sdc">手机号</li>
+							<li data-id="scf">今日收益幸福果</li>
+							<li data-id="sls">累计收益幸福果</li>
+							<li data-id="sgs">消费次数</li>
+							<li data-id="ads">剩余幸福花</li>
+							<li data-id="dds">剩余幸福果</li>
+							<li data-id="fds">注册天数</li>
+							<li data-id="dgs">最近登录天数</li>`;
+					ul2.innerHTML = html;
+				}else if(dataId == "2"){
+			    	html = `<li>订单编号</li>
+							<li>商品名称</li>
+							<li>商品数量</li>
+							<li>订单金额</li>
+							<li>所需幸福花</li>
+							<li>订单状态</li>
+							<li>商家名称</li>
+							<li>发货单号</li>
+							<li>退货单号</li>
+							<li>买家评分</li>
+							<li>买家评论</li>
+							<li>商家回复</li>
+							<li>申请退款原因</li>
+							<li>拒绝退款原因</li>`
+			    	ul2.innerHTML = html;
+			    }else if(dataId == "3"){
+			    	html = `<li>商品名称</li>
+							<li>商品库存</li>
+							<li>商品单价</li>
+							<li>所需幸福花</li>
+							<li>商家名称</li>
+							<li>上架审核不通过原因</li>
+							<li>强制下架原因</li>`
+			    	ul2.innerHTML = html;
+			    }else if(dataId == "4"){
+			    	html = `<li>本次报单总金额</li>
+							<li>本次报单已审核通过金额</li>
+							<li>本次报单未审核金额</li>
+							<li>本次审核通过金额</li>
+							<li>报单时间</li>
+							<li>审核不通过原因</li>`
+			    	ul2.innerHTML = html;
+			    }else if(dataId == "5"){
+			    	html = `<li>获赠幸福果数</li>
+							<li>获赠可补贴幸福花数</li>
+							<li>获赠不可补贴幸福花数</li>
+							<li>赠出用户名</li>
+							<li>赠出用户手机号</li>`
+			    	ul2.innerHTML = html;
+			    }else if(dataId == "6"){
+			    	html = `<li>实际到账金额</li>
+							<li>回购幸福果数</li>
+							<li>回购手续费(含税费)</li>
+							<li>银行转账手续费</li>
+							<li>回购失败原因</li>`
+			    	ul2.innerHTML = html;
+			    }else if(dataId == "7"){
+			    	html = `<li>被邀请用户名</li>
+							<li>被邀请用户手机号</li>
+							<li>买家消费提成比例</li>
+							<li>商家报单提成比例</li>`
+			    	ul2.innerHTML = html;
+			    }
+			}
+		}
+		
+		//点击获取li里面的文本
+		var tab2 = document.querySelector(".ul2");
+		var txtare1 = document.querySelector(".txtare1");
+		tab2.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			if(target.nodeName.toLowerCase() == "li"){
+				txtare1.value += " " + target.innerText + " ";
+				var dataId = target.getAttribute("data-id");
+			}
+		}
+		
+		var tab3 = document.querySelector(".ul3");
+		var txtare2 = document.querySelector(".txtare2");
+		tab3.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			if(target.nodeName.toLowerCase() == "li"){
+				txtare2.value += " " + target.innerText + " ";
+				var dataId = target.getAttribute("data-id");
+			}
+		}
+		
+		var tab4 = document.querySelector(".ul4");
+		var txtare3 = document.querySelector(".txtare3");
+		tab4.onclick = function(ev){
+			var ev = ev || window.event;
+			var target = ev.target || ev.srcElement;
+			if(target.nodeName.toLowerCase() == "li"){
+				txtare3.value += " " + target.innerText + " ";
+				var dataId = target.getAttribute("data-id");
+			}
+		}
+		
+		//修改函数
+		var tdRevise = document.querySelectorAll(".td-revise");
+		for(var i=0;i<tdRevise.length;i++){
+			tdRevise[i].onclick = function(){
+				mask.style.display = "block";
+				reviseContent.style.display = "block";
+			}
+		}
+		/*function Resive(){
+			mask.style.display = "block";
+			reviseContent.style.display = "block";
+		}*/
+		//点击禁用或启用函数
+		var tdSpan = document.querySelectorAll(".td-span");
+		for(var i=0;i<tdSpan.length;i++){
+			tdSpan[i].onclick = function(ev){
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;
+				var parent = target.parentElement.parentElement.childNodes;
+				parent = filterSpaceNode(parent);
+				if(target.innerText == "启用"){
+					target.innerText = "禁用";
+					parent[0].innerText = "启用";
+					parent[0].style.color = "green";
+				}else{
+					target.innerText = "启用";
+					parent[0].innerText = "禁用";
+					parent[0].style.color = "indianred";
+				}
+			}
+		}
+		
+		
+		
+		//保存跟取消函数
+		//取消
+		function Close(){
+			mask.style.display = "none";	
+			reviseContent.style.display = "none";
+		}
+		var close = document.querySelector(".btn-close");
+		close.onclick = Close;
+		//保存
+		var save = document.querySelector(".btn-save");
+		save.onclick = function(){
+			Close();
+		}
+		//点击mask
+		mask.onclick = Close;
+	</script>
+</html>

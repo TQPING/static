@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>生成二维码测试</title>
+	</head>
+	<script src="../jquery-2.1.1.min.js"></script>
+	<script src="../jquery.qrcode.min.js"></script>
+
+	<body>
+		<div>
+			<h1>七月</h1>
+			<div>
+				<p id='wxshare'><span>点击生成二维码</span></p>
+				<!--弹窗-->
+				<div id="myPopup" style="text-align: center;">
+					<div id="code"></div>
+					<img src="" id="qrcodeImg" /><br></div>
+				</div>
+			</div>
+		</body>
+
+	<script>
+		//过滤字符串
+		function toUtf8(str) {    
+		    var out, i, len, c;    
+		    out = "";    
+		    len = str.length;    
+		    for(i = 0; i < len; i++) {    
+		        c = str.charCodeAt(i);    
+		        if ((c >= 0x0001) && (c <= 0x007F)) {    
+		            out += str.charAt(i);    
+		        } else if (c > 0x07FF) {    
+		            out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));    
+		            out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));    
+		            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));    
+		        } else {    
+		            out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));    
+		            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));    
+		        }    
+		    }    
+		    return out;    
+		} 
+		
+		//测试
+		var str = toUtf8("http://www.baidu.com"); 
+		//$(function() {
+			$('#wxshare').click(function() {
+				var qrcode = $('#code').qrcode({
+					render: "canvas", //也可以替换为table
+					width: 120,
+					height: 120,
+					foreground: "#C00",//二维码颜色
+    				background: "#FFF",
+					text: str /*可以通过ajax请求动态设置*/
+				}).hide();
+				//将生成的二维码转换成图片格式
+				var canvas = qrcode.find('canvas').get(0);
+				$('#qrcodeImg').attr('src', canvas.toDataURL('image/jpg'));
+			});
+		//});
+	</script>
+</html>

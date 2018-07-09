@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page6</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			.topall {
+				padding: 20px 10px 0;
+			}
+			
+			.goback {
+				color: #C0BFC4;
+				float: left;
+				font-size: 2.5rem;
+				margin-top: -0.5rem;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 1.8rem;
+			}
+			.content_box:before {
+				content: "";
+				display: block;
+				margin-top: 1.5rem;
+				height: 1rem;
+				background: #ddd;
+			}
+			.content{
+				margin: 0 1rem;
+			}
+			.content_top{
+				border-bottom: 1px solid #ccc;
+				color: #333;
+				padding: 1rem 0;
+			}
+			.content_main {
+				position: relative;
+			}
+			.s1{
+				width: 30px;
+			}
+			.s2 {
+				position: absolute;
+				top: 15%;
+				left: 40px;
+			}
+			.content_cen{
+				border-bottom: 1px solid #ccc;
+			}
+			.content-cen_title{
+				font-size: 2rem;
+				padding-top: 2rem;
+			}
+			.content-cen_money{
+				font-size: 3rem;
+				padding: 2rem 0;
+			}
+			.content-cen_title,.content-cen_money{
+				display: block;
+				color: #333;
+			}
+			.content_bom{
+				
+			}
+			.read_deal{
+				color: #777;
+				padding: 2rem 0 5rem 30px;
+			}
+			.read_deal:before{
+				content: "";
+				position: absolute;
+				left: 1rem;
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: orange;
+			}
+			.deal{
+				color: #D53C27;
+			}
+			.content_btn{
+				text-align: center;
+			}
+			.btn_next{
+				padding: 1rem 8rem;
+    			border-radius: 5px;
+				background: #D53C27;
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="topall">
+				<a class="goback">&lt;</a>
+				<div class="title">一键贷款</div>
+		</header>
+		<div class="content_box">
+			<div class="content">
+				<ul>
+					<li class="content_top">
+						<div class="content_main">
+							<img class="s1" src="../pic/15.png" alt="" />
+							<span class="s2">中信银行-公积金贷款</span>
+						</div>
+					</li>
+					<li class="content_cen">
+						<p class="content-cen_title">借款金额</p>
+						<b class="content-cen_money">￥ 1000,00</b>
+					</li>
+					<li class="content_bom">
+						<div class="read_deal">我已阅读<span class="deal">《智卡通贷款协议》</span></div>
+						
+					</li>
+					<li class="content_btn">
+						<span class="btn_next">下一步</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,20 @@
+﻿ .login-footer {bottom: 20px;width: 100%;position: fixed;color: #fff;font-size: 12px;text-align: center;}
+ .cover-progress {display: none;position: fixed;z-index: 10001;top: 0px;width: 100%;background: rgba(0,0,0,0.5);}
+ .cover-progress .progress {position: absolute;top: 50%;left: 25%;width: 50%;margin: auto;}
+ .cover-progress .progress progress {width: 100%;}
+.myfr {float:right;}
+.myfl {float:left;}
+.mycl {clear:both; width:0px; height:0px;}
+
+.role-menu { margin-left:5px;}
+.role-menu-sub  label{ float:left; margin-left:30px; font-weight:normal;}
+.role-menu-main label, .role-menu-sub label { cursor:pointer;}
+
+.check-row {position: relative;}
+.check-row label {position: absolute;}
+.check-row .ctxt {float: right;}
+
+#div_table { width:200px;white-space: nowrap; overflow: hidden; overflow-x: auto; -webkit-backface-visibility: hidden; -webkit-overflow-scrolling: touch;}
+#role_toolbar .btn { margin-left:0px;}
+.display-none {display: none;}
+.form-group img { max-width:250px;}

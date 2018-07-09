@@ -1,0 +1,22 @@
+﻿    .num {
+        padding-left:5px;
+        color:red;
+        font-size:18px;
+    }
+    .line-height {
+        height:30px;
+        line-height:30px;
+        font-family:'Microsoft YaHei';
+    }
+.page-status {
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 5px;
+    color: #000;
+}
+.page-num {
+    font-size:18px;color:red;
+}
+.page-title {
+    font-size:16px;
+}

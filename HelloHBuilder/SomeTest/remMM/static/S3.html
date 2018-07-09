@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>S3</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<style type="text/css">
+			body{
+				background-color: #fff;
+			}
+			header {
+				padding: 20px 10px 0;
+				background-color: #D53C27;
+				height: 40px;
+			}
+			
+			.goback {
+				color: #fff;
+			    float: left;
+			    font-size: 40px;
+			    margin-top: -16px;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+			}
+			
+			.main_box{
+				text-align: center;
+			}
+			.radius_box{
+				display: inline-block;
+			    border: 20px solid #F2F2F2;
+			    width: 180px;
+			    height: 180px;
+			    border-radius: 50%;
+			    margin-top: 60px;
+			}
+			.radius_p{
+				padding-top: 60px;
+			    font-size: 15px;
+			    color: #333;
+			}
+			.radius_b{
+				font-size: 30px;
+				color: #D53C27;
+				padding-top: 15px;
+			}
+			.money_box{
+				margin: 30px;
+			}
+			.money_box>li{
+				float: left;
+				width: 49%;
+			}
+			.money_li{
+				border-right: 1px solid #ccc;
+			}
+			.money_p{
+				color: #666;
+				font-size: 15px;
+			}
+			.money_b{
+				color: #333;
+				padding-top: 15px;
+				font-size: 24px;
+			}
+			.main_p{
+				text-align: left;
+			    margin: 0 10px;
+			    color: #333;
+			    padding-top: 18px;
+			    border-top: 1px solid #ccc;
+			}
+			.main_span{
+				color: #f0922e;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">额度确认</div>
+		</header>
+		<div class="main_box">
+			<div>
+				<span class="radius_box">
+					<p class="radius_p">授信额度</p>
+					<b class="radius_b">10000.00</b>
+				</span>
+			</div>
+			<ul class="money_box clearfix">
+				<li class="money_li">
+					<p class="money_p">还款金额</p>
+					<b class="money_b">5000.00</b>
+				</li>
+				<li>
+					<p class="money_p">代还服务费</p>
+					<b class="money_b">50.00</b>
+				</li>
+			</ul>
+			<p class="main_p">请确认您的信用卡内至少有可用余额<span class="main_span">5000.00元</span></p>
+		</div>
+	</body>
+</html>

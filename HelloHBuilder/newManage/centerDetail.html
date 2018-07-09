@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="Content/Css/detail.css">
+	<script src="Scripts/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		#table{
+			margin-top: 5px;border-collapse: collapse;text-align: center;
+		}
+		#td{
+			border: 1px solid #000;
+			padding: 3px;
+		}
+	</style>
+	<body>
+		<div id="holderform" class="check-block">
+			<img class="mao-point" onclick="toMao()" src="Images/returnToTop.png">
+			<div class="check-row">
+				<div class="check-head">
+					<img onclick="cancel()" src="Images/top_return.png">管理中心详情
+				</div>
+			</div>
+			<div class="check-row">
+				<label class="title">状态</label>
+				<div class="ctxt">
+					已开通
+				</div>
+			</div>
+			<div class="check-row">
+				<label class="title">登录手机号</label>
+				<div class="ctxt">
+					15698756324
+				</div>
+			</div>
+			<div class="check-row">
+				<label class="title">管理中心名称</label>
+				<div class="ctxt">
+					成都市二管理中心
+				</div>
+			</div>
+			<div class="check-row">
+				<label class="title">开通所在省</label>
+				<div class="ctxt">
+					四川省
+				</div>
+			</div>
+			<div class="check-row">
+				<label class="title">管辖区域</label>
+				<div class="ctxt">
+					高新区 锦江区
+				</div>
+			</div>
+			<div class="check-row" style="display:none;">
+				<label class="title">企业名称</label>
+				<div class="ctxt">
+					成都养鸡场
+				</div>
+			</div>
+			<div class="check-row" id="addrBox">
+				<label class="title">法人姓名</label>
+				<div class="ctxt" id="addr">
+					二狗子
+				</div>
+			</div>
+			<div class="check-row" id="moreBtn">
+				<a>更多<img src="Images/down_black.png"></a>
+			</div>
+			<div id="more" style="display: none;">
+				<div class="display_person">
+					<div class="check-row">
+						<label class="title">营业执照号</label>
+						<div class="ctxt">
+							1236478965456325698
+						</div>
+					</div>
+					<div class="check-row">
+						<label class="title">详细地址</label>
+						<div class="ctxt">
+							成都市武侯区毛毛虫路线72号
+						</div>
+					</div>
+					<div class="check-row" style="display:none;">
+						<label class="title">客服经理</label>
+						<div class="ctxt">
+							奥赛德
+						</div>
+					</div>
+					<div class="check-row" id="companyInfoBox">
+						<label class="title">客服经理电话</label>
+						<div class="ctxt" id="companyInfo">
+							15325698754
+						</div>
+					</div>
+					<div class="check-row">
+						<label class="title">推荐人</label>
+						<div class="ctxt">
+							成都市猫猫咪科技有限公司
+						</div>
+					</div>
+					<div class="check-row">
+						<label class="title">推荐人手机号</label>
+						<div class="ctxt">
+							13654268879
+						</div>
+					</div>
+					<div class="check-row">
+						<label class="title">推荐管理中心</label>
+						<div class="ctxt">
+							成都市管理中心
+						</div>
+					</div>
+				</div>
+				<div class="check-row">
+					<label class="title">推荐管理中心占股比例</label>
+					<div class="ctxt">
+						10%
+					</div>
+				</div>
+				<div class="check-row">
+					<label class="title">备注</label>
+					<div class="ctxt">
+						正常自行车市政府的说法传说中
+					</div>
+				</div>
+				<div class="check-row">
+					<label class="title">占股人员</label>
+					
+				</div>
+				<div class="check-row">
+					<table id="table">
+						<tr>
+							<td id="td">姓名</td>
+							<td id="td">大佬</td>
+							<td id="td">小弟</td>
+						</tr>
+						<tr>
+							<td id="td">电话</td>
+							<td id="td">15698756324</td>
+							<td id="td">15698756324</td>
+						</tr>
+						<tr>
+							<td id="td">身份</td>
+							<td id="td">超级股东</td>
+							<td id="td">股东</td>
+						</tr>
+						<tr>
+							<td id="td">占股比例</td>
+							<td id="td">10%</td>
+							<td id="td">20%</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+		<script>
+			var page = 1;
+			_height = document.documentElement.clientHeight;
+			$("#moreBtn").click(function() {
+				$("#more").show().fadeOut;
+				$("#moreBtn").hide();
+				if($("#companyInfo").height() > 35)
+					$("#companyInfoBox").height($("#companyInfo").height() + 35);
+				if($("#remark").height() > 35)
+					$("#companyInfoBox").height($("#companyInfo").height() + 35);
+			});
+
+			getQueryString = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return 1;
+			}
+			$(document).ready(function() {
+				if($("#addr").height() > 35)
+					$("#addrBox").height($("#addr").height() + 35);
+				page = getQueryString("page");
+			});
+
+			toMao = function() {
+				document.getElementById('holderform').scrollIntoView();
+			};
+
+			cancel = function() {
+				history.go(-1);
+				//$("#load").loading("/Holder/Holder?page=" + page + "");
+				return;
+			};
+		</script>
+
+	</body>
+
+</html>

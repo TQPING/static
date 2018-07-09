@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>page7</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			header {
+				padding: 20px 10px;
+			}
+			
+			.goback {
+				color: #C0BFC4;
+				float: left;
+				font-size: 2.5rem;
+				margin-top: -0.5rem;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 1.8rem;
+			}
+			
+			hr {
+				height: 1rem;
+				background-color: #DDDDDD;
+				margin: 0;
+				border: 0;
+			}
+			
+			.content {
+				margin: 0 1rem;
+			}
+			
+			.content-ul>li {
+				padding: 1.5rem 0;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			.content>li:last-child {
+				border-bottom: none;
+			}
+			
+			.content-ul>li>span {
+				display: inline-block;
+				width: 22%;
+			}
+			
+			.content-ul>li>input {
+				border: none;
+				display: inline-block;
+				outline: none;
+				width: 75%;
+			}
+			
+			.content-ul>li:last-child>input {
+				width: 45%;
+			}
+			
+			#sendCode {
+				color: #fff;
+				background-color: #f0932f;
+				padding: 0.7rem;
+				border-radius: 5px;
+			}
+			
+			.footer {
+				padding: 5rem 0;
+				text-align: center;
+			}
+			
+			#add-sure {
+				padding: 1rem 10rem;
+				border-radius: 5px;
+				color: #fff;
+				background-color: #D53C27;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">用户登陆</div>
+		</header>
+		<hr />
+		<div class="content">
+			<ul class="content-ul">
+				<li>
+					<span>账号</span>
+					<input type="text" name="userName" id="userName" value="" placeholder="请输入账号" />
+				</li>
+				<li>
+					<span>密码</span>
+					<input type="text" maxlength="11" name="passWord" id="passWord" value="" placeholder="请输入密码" />
+				</li>
+			</ul>
+		</div>
+		<div class="footer">
+			<span id="add-sure">
+				登陆
+			</span>
+		</div>
+	</body>
+
+</html>

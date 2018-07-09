@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>S7</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<style type="text/css">
+			header {
+				padding: 20px 10px 0;
+				background-color: #2c2e42;
+				height: 40px;
+			}
+			
+			.goback {
+				color: #fff;
+				float: left;
+				font-size: 40px;
+				margin-top: -16px;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+			}
+			/*.process{
+				padding: 20px 0;
+			}*/
+			.detail_box{
+				padding-bottom: 50px;
+			}
+			.process_box{
+				position: relative;
+				padding: 20px 50px 0px;
+			}
+			.process_box>span{
+				float: left;
+			}
+			.pro_s{
+				color: #fff;
+			    padding: 5px 10px;
+			    background: #04c38c;
+			    border-radius: 50%;
+			}
+			.pro_line{
+				display: inline-block;
+				height: 1px;
+				width: 94px;
+				background: #e3e2e3;
+				margin-top: 13px;
+			}
+			.pro_txtbox{
+				padding: 10px 50px 20px;
+				color: #666;
+			}
+			.pro_txt1{
+				margin-left: -10px;
+			}
+			.pro_txt2{
+				padding: 0 70px;
+			}
+			.user_info{
+				background: #fff;				
+			}
+			.info_box{
+				margin: 0 34px;
+				text-align: right;
+			}
+			.info_box>li{
+				padding: 18px 0;
+			}
+			.info_box>li:first-child{
+				border-bottom: 1px solid #ccc;
+			}
+			.name,.IDcard{
+				display: inline-block;
+			    float: right;
+			    width: 74%;
+			    margin-left: 10%;
+			    outline: none;
+			    border: none;
+			    padding: 5px 0;
+    			margin-top: -5px;
+			}
+			.tips{
+				padding-top: 15px;
+				padding-left: 34px;
+				font-size: 15px;
+				color: #666;
+			}
+			.btn{
+				padding: 20px;
+				text-align: center;
+				margin: 0 12px;
+				border-bottom: 1px solid #ccc;
+			}
+			.btn>span{
+				background: #04c38c;
+				color: #fff;
+				font-size: 15px;
+				border-radius: 5px;
+				padding: 10px 100px;
+			}
+			.rules_ul{
+				padding: 20px 34px;
+			}
+			.rules_li1{
+				color: #666;
+			}
+			.rules_s1{
+				font-size: 15px;
+			}
+			.rules_li2{
+				padding-top: 18px;
+				color: #999;
+			}
+			.rules_li3{
+				padding-top: 50px;
+				font-size: 15px;
+				color: #666;
+			}
+			.rules_li4{
+				padding-top: 20px;
+				text-align: center;
+			}
+			..rules_li5{
+				padding-top: 10px;
+			}
+			.rules_li4>div,.rules_li5>div{
+				float: left;
+				width: 32%;
+			}
+			.rules_li5>div{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">芝麻信用授权</div>
+		</header>
+		<div class="main_box">
+			<div class="process">
+				<div class="process_box clearfix">
+					<span class="pro_s">1</span>
+					<span class="pro_line"></span>
+					<span class="pro_s">2</span>
+					<span class="pro_line"></span>
+					<span class="pro_s">3</span>
+				</div>
+				<div class="pro_txtbox clearfix">
+					<span class="pro_txt1">立即授权</span>
+					<span class="pro_txt2">同意协议</span>
+					<span class="pro_txt">短信验证</span>
+				</div>
+			</div>
+			<div class="user_info">
+				<ul class="info_box clearfix">
+					<li>
+						姓名<input class="name" placeholder="请输入姓名" type="text" />
+					</li>
+					<li>
+						身份证号<input class="IDcard" placeholder="请输入身份证号" type="text" />
+					</li>
+				</ul>
+			</div>
+			<p class="tips">以上信息用于确认您的身份</p>
+			<div class="btn">
+				<span>立即授权</span>
+			</div>
+			<div class="rules_box">
+				<ul class="rules_ul">
+					<li class="rules_li1">
+						<span class="rules_s1">芝麻信用</span>+<span class="rules_s1">商户名称</span>
+					</li>
+					<li class="rules_li2">
+						1.芝麻信用授权的好处芝麻信用授权的好处
+					</li>
+					<li class="rules_li2">
+						2.芝麻信用授权的好处芝麻信用授权的好处芝麻信用授权的好处
+					</li>
+					<li class="rules_li3">
+						更多信用生活，尽在芝麻信用
+					</li>
+					<li class="rules_li4 clearfix">
+						<div>
+							<img src="../pic/12.png" alt="" />
+						</div>
+						<div>
+							<img src="../pic/12.png" alt="" />
+						</div>
+						<div>
+							<img src="../pic/12.png" alt="" />
+						</div>
+					</li>
+					<li class="rules_li5 clearfix">
+						<div>
+							<span>信用签证</span>
+						</div>
+						<div>
+							<span>信用住</span>
+						</div>
+						<div>
+							<span>信用行</span>
+						</div>
+					</li>
+				</ul>				
+			</div>
+		</div>
+	</body>
+</html>

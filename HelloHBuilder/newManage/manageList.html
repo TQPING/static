@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="Scripts/plugins/sspager/ss_page.css" />
+	<link rel="stylesheet" href="Content/resource/style.css" />
+	<link href="Content/Css/cover.css" rel="stylesheet" />
+	<link href="Content/Larea/LArea.css" rel="stylesheet" />
+	<link href="Content/newpicker/sm.css" rel="stylesheet" />
+	<script src="Scripts/jquery-3.1.1.min.js"></script>
+
+	<body>
+		<div class="bootstrap-table">
+			<div class="fixed-table-toolbar">
+				<div class="bs-bars pull-left">
+					<div style="display: inline-block;width: 300px;">
+						<div style="margin-top: 10px;">
+							注册手机号：<input type="text" style="display: inline-block;width: 150px;" />
+						</div>
+						<div style="margin-top: 10px;">
+							法人姓名：<input type="text" style="display: inline-block;width: 150px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fixed-table-toolbar">
+				<div class="bs-bars pull-left">
+					<div style="margin-top: 10px;">
+						法人姓名：<input type="text" style="display: inline-block;width: 150px;" />
+					</div>
+					<div style="margin-top: 10px;">
+						<span>状态：</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />已签约
+						</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />已签约
+						</span>
+						<span style="padding: 2px 20px;background: #ddd;margin-left: 10px;border: 1px solid #666;">
+							查询
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="fixed-table-toolbar"  style="margin: 15px 0;">
+				<div class="bs-bars pull-left">
+					<center>
+						<div style="color: red;">
+							共<span>2</span>页
+						</div>
+					</center>
+				</div>
+				<div class="bs-bars pull-right">
+					<center>
+						<div>
+							<a class="btn btn-success btn-forlimit-add" href="/Center/ManageMentAdd" style="display: inline-block;">开通管理中心</a>
+							<button class="btn btn-success" onclick="exportInfo();">导出数据</button>
+						</div>
+					</center>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="fixed-table-toolbar" style="margin: 15px 0;">
+				<table id="provincetable" class="table table-hover table-striped">
+					<thead style="display: table-header-group;">
+						<tr>
+							<th style="padding: 3px 0;background: dodgerblue;color: #fff;text-align: center; width: 20%;border: 1px solid #000; " data-field="manager_full_name" tabindex="0">
+								<div class="th-inner ">管理中心名称</div>
+								<div class="fht-cell"></div>
+							</th>
+							<th style="padding: 3px 0;background: dodgerblue;color: #fff;text-align: center; width: 20%; border: 1px solid #000;" data-field="manager_full_name" tabindex="0">
+								<div class="th-inner ">注册手机号</div>
+								<div class="fht-cell"></div>
+							</th>
+							<th style="padding: 3px 0;background: dodgerblue;color: #fff;text-align: center; width: 20%; border: 1px solid #000;" data-field="manager_rgn_name_sheng" tabindex="0">
+								<div class="th-inner ">法人姓名</div>
+								<div class="fht-cell"></div>
+							</th>
+							<th style="padding: 3px 0;background: dodgerblue;color: #fff;text-align: center; width: 20%;border: 1px solid #000; " data-field="manager_rgn_name_sheng" tabindex="0">
+								<div class="th-inner ">状态</div>
+								<div class="fht-cell"></div>
+							</th>
+							<th style="padding: 3px 0;background: dodgerblue;color: #fff;text-align: center; width: 20%; border: 1px solid #000;" data-field="" tabindex="0">
+								<div class="th-inner ">操作</div>
+								<div class="fht-cell"></div>
+							</th>
+						</tr>
+					</thead>
+					<tbody id="data_body">
+						<tr>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">是多少</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">示范性传播发发</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">vdxvc</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								已签约
+							</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								<span>编辑</span>
+								<span style="margin-left: 2px;">删除</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">是多少</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">示范性传播发发</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">vdxvc</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								未开通
+							</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								<span>编辑</span>
+								<span style="margin-left: 2px;">删除</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">是多少</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">示范性传播发发</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">vdxvc</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								已开通
+							</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								<span>编辑</span>
+								<span style="margin-left: 2px;">删除</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">是多少</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">示范性传播发发</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">vdxvc</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								已开通
+							</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								<span>编辑</span>
+								<span style="margin-left: 2px;">删除</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">是多少</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">示范性传播发发</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">vdxvc</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								已开通
+							</td>
+							<td style="padding: 3px 0;text-align: center; width: 20%; border: 1px solid #000;">
+								<span>编辑</span>
+								<span style="margin-left: 2px;">删除</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="infoPage" class="fixed-table-pagination" style="display: block;"></div>
+
+		</div>
+
+	</body>
+	<script>
+		var Zepto = jQuery;
+		var pickerdata;
+	</script>	
+	<!--@*<script src="Content/newpicker/sm-city-picker.js"></script>*@-->
+	<script src="Content/newpicker/sm.min.js"></script>
+	<script src="Scripts/MD5.js"></script>
+	<script src="Scripts/rgn2017_gai.js"></script>
+	<script src="Scripts/rgn2017_origin_gai.js"></script>
+	<script src="Content/Larea/LArea.js"></script>
+	<script src="Scripts/jquery.citys.js"></script>
+	<script type="text/javascript" src="Scripts/plugins/sspager/ss_page.js"></script>
+	<script type="text/javascript" src="Scripts/pages/center/ManageMent.js"></script>
+
+</html>

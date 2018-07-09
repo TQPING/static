@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>S5</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<style type="text/css">
+			/*body{
+				background-color: #fff;
+			}*/
+			header {
+				padding: 20px 10px 0;
+				background-color: #D53C27;
+				height: 40px;
+				margin-top: 10px;
+			}
+			
+			.goback {
+				color: #fff;
+			    float: left;
+			    font-size: 40px;
+			    margin-top: -16px;
+			}
+			
+			.title {
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+			}
+			.main_box{
+				background: #fff;
+			}
+			.top_box{
+				margin-top: 10px;
+				position: relative;
+				padding: 15px 24px;
+			}
+			.top_img{
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				width: 40px;
+			}
+			.top_box>span{
+				float: left;
+			}
+			.top_span1{
+				background: #F0F0F0;
+			    padding: 3px;
+			    border-radius: 50%;
+			}
+			.top_span1>img{
+				width: 50px;
+			}
+			.top_span2{
+				padding-left: 12px;
+			}
+			.bank_name{
+				font-size: 15px;
+				color: #333;
+			}
+			.bank_info{
+				padding-top: 10px;
+				color: #666;
+			}
+			.detail_box{
+				background: #fff;
+				margin-top: 10px;
+			}
+			.money_detail{
+				margin: 0 12px;
+			}
+			.money_detail>li{
+				padding: 18px 0;
+				border-bottom: 1px solid #ccc;
+			}
+			.money_detail>li:first-child{
+				padding: 30px 0;
+				position: relative;
+			}
+			.money_s1{
+				font-size: 15px;
+				color: #333;
+			}
+			.money_s2{
+				font-size: 30px;
+				color: #333;
+				position: absolute;
+				top: 20px;
+				left: 100px;
+			}
+			.money_s3,.money_s4{
+				padding-left: 40px;
+			}
+			.money_s4{
+				float: right;
+			    padding: 7px 10px;
+			    background: orange;
+			    color: #fff;
+			    border-radius: 5px;
+			    margin-top: -5px;
+			}
+			.btn{
+				padding-top: 100px;
+				text-align: center;
+			}
+			.btn>span{
+				background: #D53C27;
+				color: #fff;
+				font-size: 15px;
+				border-radius: 5px;
+				padding: 10px 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="goback">&lt;</a>
+			<div class="title">银联支付</div>
+		</header>
+		<div class="main_box">
+			<div class="top_box clearfix">
+				<span class="top_span1">
+					<img src="../pic/bank4.png"/>
+				</span>
+				<span class="top_span2">
+					<p class="bank_name">中国工商银行</p>
+					<p class="bank_info">
+						<span class="bank_num">尾号0213</span>
+						<span>信用卡</span>
+					</p>
+				</span>
+				<img class="top_img" src="../pic/bank2.png" alt="" />
+			</div>
+		</div>
+		<div class="detail_box">
+			<ul class="money_detail">
+				<li>
+					<span class="money_s1">服务费</span>
+					<span class="money_s2">￥50.00</span>
+				</li>
+				<li>
+					<span class="money_s1">手机号码</span>
+					<span class="money_s3">188****1234</span>
+				</li>
+				<li>
+					<span class="money_s1">手机号码</span>
+					<span class="money_s3">123456</span>
+					<span class="money_s4">发送验证码</span>
+				</li>
+			</ul>
+		</div>
+		<div class="btn">
+			<span>查看明细</span>
+		</div>
+	</body>
+</html>

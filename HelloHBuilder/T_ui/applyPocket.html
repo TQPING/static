@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-touch-fullscreen">    
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+		<title>申请提现</title>
+		<style type="text/css">
+			body{margin: 0;padding: 0;font-size: 16px;background-color: #F2F2F2;}
+			a {
+				text-decoration: none;color: #000000;
+			}
+			ul,li {
+				list-style: none;
+				margin: 0;padding: 0;
+			}
+			p,div{margin: 0;padding: 0;}
+			/*清除浮动代码*/
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			header{
+				background-color: #FFFFFF;
+				line-height: 46px;
+				font-size: 16px;
+				padding: 0 12px;
+				text-align: center;
+				border-bottom: 1px solid #CECECE;
+			}
+			header span{float: left;}
+			header .head_c{display: inline-block;font-weight: bold;}
+			.main_box{background-color: #FFFFFF;margin: 10px 12px;border-radius: 5px;}
+			.con_box{margin: 0px 16px;padding: 16px 0;}
+			.con_box li{line-height: 36px;}
+			.con_l{float: left;}
+			.con_r{float: left;padding-left: 10px;}
+			.blue{color: #2196f3;}
+			.con_r1{
+				font-size: 30px;
+				width: 95%;
+				line-height: 2;
+				border-bottom: 1px solid #CECECE;
+			}
+			.con_r1 input{padding-left: 15px;width: 80%;line-height: 2;outline: none;border: 0;font-size: 18px;}
+			.acct{line-height: 4;}
+			.btn{
+				margin: 10px 0;
+				background-color: #D53C27;
+				width: 100%;line-height: 40px;
+				text-align: center;border-radius: 5px;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="clearfix">
+			<span>&lt;</span>
+			<p class="head_c">申请提现</p>
+		</header>
+		<div class="main_box clearfix">
+			<ul class="con_box">
+				<li class="clearfix">
+					<div class="con_l">到账银行</div>
+					<div class="con_r blue">农业银行储蓄卡（0019）</div>
+				</li>
+				<li class="clearfix">
+					<div class="con_l">提现金额</div>
+					<div class="con_r con_r1">￥<input type="" name="" id="" placeholder="只可输入1的倍数" /></div>
+				</li>
+				<li class="clearfix">
+					<p class="acct">当前零钱余额<span>722.17</span></p>
+				</li>
+				<div class="btn">提现</div>
+			</ul>
+		</div>
+	</body>
+</html>

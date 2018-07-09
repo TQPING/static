@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+			<li><span>1</span></li>
+			<li><span>2</span></li>
+			<li><a href="testing1.html"><span>3</span></a></li>
+			<li><span>4</span></li>
+			<li><span>5</span></li>
+			<li><span>6</span></li>
+			<li><span>7</span></li>
+			<li><span>8</span></li>
+			<li><span>9</span></li>
+			<li><span>10</span></li>
+		</ul>	
+		<script type="text/javascript">
+			//获取地址栏参数，name:参数名称
+		function getUrlParms(name) {
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		    if (r != null)
+		        return unescape(r[2]);
+		    return null;
+		};
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var URL = window.location.search.substr(1).match(reg);//获取url中"?"符后的字串
+		console.log(URL)
+		
+		
+		</script>
+</body>
+</html>

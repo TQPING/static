@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-touch-fullscreen">    
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+	    <!--<link rel="stylesheet" type="text/css" href="lib/mui-master/dist/css/mui.css"/>-->
+		<title>订单详情</title>
+		<style type="text/css">
+			body{margin: 0;padding: 0;font-size: 12px;background-color: #F2F2F2;}
+			a {
+				text-decoration: none;color: #000000;
+			}
+			ul,li {
+				list-style: none;
+				margin: 0;padding: 0;
+			}
+			p,div{margin: 0;padding: 0;}
+			/*清除浮动代码*/
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			header{
+				background-color: #FFFFFF;
+				line-height: 62px;
+				font-size: 17px;
+				padding: 0 12px;
+				text-align: center;
+				border-bottom: 1px solid #CECECE;
+			}
+			header span{float: left;}
+			header .head_c{display: inline-block;font-weight: bold;}
+			header .head_r{float: right;}
+			
+			.top{
+				line-height: 30px;
+				background-color: #FE674B;
+				color: #FFFFFF;
+				padding: 20px 12px;
+			}
+			.top_l{float: left;font-weight: bold;}
+			.top_r{float: right;width: 30px;margin-top: 5px;}
+			.top_r img{width: 100%;}
+			.top_con{
+				background-color: #FFFFFF;
+				line-height: 28px;
+				padding: 0 12px;
+			}
+			.top_con li{width: 50%;text-align: center;padding: 24px 0;}
+			.top_con li:first-child{float: left;}
+			.top_con li:last-child{float: right;}
+			.top_con_t b{font-size: 16px;}
+			.top_con_b{color: #666666;}
+			.top_con_t_r{float: right;color: #666666;}
+			
+			.main{background-color: #FFFFFF;margin-top: 10px;}
+			.title{
+				line-height: 40px;padding: 0 12px;
+				font-weight: bold;
+				border-bottom: 1px solid #CECECE;
+			}
+			.main_ul{padding: 15px 0;}
+			.main_li{margin: 0 12px;line-height: 26px;color: #666666;}
+			.main_li_l{float: left;}
+			.main_li_r{float: left;margin-left: 10px;}
+			.cp_btn{
+				background-color: #FC4929;padding: 0 10px;
+				color: #FFFFFF;text-align: center;line-height: 26px;
+				border-radius: 25px;
+			}
+			
+			.main_ul1{padding: 10px 0;margin: 0 12px;color: #666666;}
+			.main_li1{padding: 10px 0;}
+			.goods_l{float: left;width: 70px;}
+			.goods_l img{width: 100%;}
+			.goods_c{
+				width: 70%;float: left;margin-left: 12px;
+				word-wrap: break-word;
+				padding: 15px 0;line-height: 1.5;
+			}
+			.goods_r{float: right;padding: 36px 0 0;color: #999999;}
+		</style>
+	</head>
+	<body>
+		<header class="clearfix">
+			<span>&lt;</span>
+			<p class="head_c">订单详情</p>
+		</header>
+		<div class="top clearfix">
+			<div class="top_l">已结算</div>
+			<div class="top_r"><img src="icon_pay.png"/></div>
+		</div>
+		<ul class="top_con clearfix">
+			<li>
+				<div class="top_con_t"><span>￥</span><b>520.22</b></div>
+				<div class="top_con_b">实付金额</div>
+			</li>
+			<li>
+				<div class="top_con_t clearfix">
+					<span>￥</span><b>58.00</b> 
+					<div class="top_con_t_r">x2</div>
+				</div>
+				<div class="top_con_b">预计购物红包</div>
+			</li>
+		</ul>
+		<div class="main clearfix">
+			<div class="title">订单信息</div>
+			<ul class="main_ul clearfix">
+				<li class="main_li clearfix">
+					<div class="main_li_l">订单来源：</div>
+					<div class="main_li_r">京东商城</div>
+				</li>
+				<li class="main_li clearfix">
+					<div class="main_li_l">订单标号：</div>
+					<div class="main_li_r goodsNo">201805290101011234567890</div>
+					<div class="main_li_r cp_btn copyBtn" data-clipboard-action="copy" data-clipboard-target=".goodsNo">复制</div>
+				</li>
+				<li class="main_li clearfix">
+					<div class="main_li_l">订单记录：</div>
+					<div class="main_li_r">2018-05-29 00:00:00</div>
+				</li>
+				<li class="main_li clearfix">
+					<div class="main_li_l">发放红包：</div>
+					<div class="main_li_r">2018-05-29 00:00:00</div>
+				</li>
+			</ul>
+		</div>
+		<div class="main clearfix">
+			<div class="title">商品信息</div>
+			<div class="main_ul1 clearfix">
+				<li class="main_li1 clearfix">
+					<div class="goods_l"><img src="goods_img.png"/></div>
+					<div class="goods_c">唐力2018春装新款白色欧美气质显瘦荷叶边一字领露肩连衣裙短裙女</div>
+					<div class="goods_r">x2</div>
+				</li>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.js"></script>
+	<script src="lib/mui-master/dist/js/mui.js"></script>
+	<script type="text/javascript">
+		/*------------复制---------------*/
+		var clipboard = new ClipboardJS('.copyBtn', {
+	    // 通过target指定要复印的节点
+	        text: function(trigger) {
+				return $('.goodsNo').html();
+          	}
+	    });
+		
+	    clipboard.on('success', function(e) {
+	        mui.toast('已复制');
+			console.info('Action:', e.action);
+		    console.info('Text:', e.text);
+		    console.info('Trigger:', e.trigger);
+	        e.clearSelection();
+	    });
+	
+	    clipboard.on('error', function(e) {
+	        console.log('请复制内容',e);
+	    });
+		
+		
+	</script>
+</html>

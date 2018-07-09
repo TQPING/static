@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百业宝登陆页面</title>
+	</head>
+	<script src="jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		body{
+			font-size: 14px;
+			background: #eee;
+			padding-top: 10px;
+			padding-left: 10px;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.content{
+			padding-top: 5px;
+		}
+		.buyback{
+			padding-top: 5px;
+			color: deepskyblue;
+		}
+		.add-buyback{
+			padding: 5px 20px;
+			background: dodgerblue;
+			margin-left: 20px;
+			border-radius: 5px;
+			color: #fff;
+		}
+		.buyback-detail{
+			margin-top: 10px;
+			width: 550px;
+			padding-left: 70px;
+		}
+		.detail-list{
+			padding: 10px 10px;
+			border: 1px solid #ccc;
+			background: #fff;
+			border-radius: 10px;
+		}
+		.detail-list>li{
+			padding-top: 5px;
+		}
+		.last{
+			height: 15px;
+		}
+		.manage{
+			float: right;
+		}
+		.delete{
+			margin-left:20px;
+		}
+		#mask{
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			background: #000;
+			opacity: 0.5;
+		}
+		#add-rate{
+			display: none;
+			width: 350px;
+			border: 1px solid #ccc;
+			padding: 20px;
+			background: #fff;
+			border-radius: 10px;
+			position: absolute;
+			top: 200px;
+			left: 40%;
+		}
+		.over-scroll{
+			overflow: hidden;
+    		height: 140px;
+		}
+		.rate{
+			padding-top: 10px;
+		}
+		.rate-name{
+			display: inline-block;width: 60px;
+		}
+		#named{
+			width: 280px;
+		}
+		.input{
+			width: 100px;
+		}
+		.add-del{
+			display:inline-block;
+			width: 270px;
+			text-align: center;
+			color: #fff;
+			border-radius: 5px;
+			padding: 3px 0;
+		}
+		#add-one{
+			background: deepskyblue;
+		}
+		#add-sure{
+			background: orange;
+		}
+		.alert-del{
+			display: none;
+			width: 160px;
+			padding: 5px 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			background: #fff;
+			position: absolute;
+			top: 300px;
+			left: 45%;
+		}
+		#del-one>p{
+			text-align: center;
+			margin: 20px 0 0 0;
+		}
+		#del-two>div{
+			text-align: center;
+			margin: 20px 0 0 0;
+		}
+		.left{
+			padding-right: 10px;
+		}
+		.right{
+			padding-left: 10px;
+		}
+		#gear{
+			height: 250px;
+		}
+		.outer-scroll{
+			overflow-x: hidden;
+			    overflow-y: auto;
+		}
+	</style>
+
+	<body>
+		<div>
+			<a href="#">商城管理</a> &gt <a>回购费率</a>
+		</div>
+		<hr />
+		<div class="content">
+			<span class="buyback">回购费率管理</span>
+			<span class="add-buyback">新增回购费率</span>
+		</div>
+		<ul class="content-list">
+			
+			<li class="buyback-detail">
+				<ul class="detail-list">
+					<li >回购费率1</li>
+					<li>0元~20000元（含20000元） <span>费率：8%</span> <span>附加金额：10元</span></li>
+					<li>20000元~60000元（含60000元） <span>费率：25%</span> <span>附加金额：10元</span></li>
+					<li>60000元以上 <span>费率：35%</span> <span>附加金额：10元</span></li>
+					<li class="last">
+						<div class="manage">
+							<span class="edit">编辑</span><span class="delete">删除</span>
+						</div>
+					</li>
+				</ul>
+			</li>
+			
+			<li class="buyback-detail">
+				<ul class="detail-list">
+					<li >回购费率1</li>
+					<li class="last">
+						<div class="manage">
+							<span class="edit">编辑</span><span class="delete">删除</span>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<!--遮罩层-->
+		<div id="mask"></div>
+		<!--删除-->
+		<div id="del-one" class="alert-del">
+			该回购率模板正在使用中，不能被删除
+			<p id="suredel-one">确认</p>
+		</div>
+		<div id="del-two" class="alert-del">
+			是否要删除该回购率模板
+			<div>
+				<span id="suredel-two" class="left">确认</span> | <span id="canceldel" class="right"> 取消</span>
+			</div>
+		</div>
+		<!--增加费率单-->
+		<div id="add-rate">
+			<div class="rate">
+				<span class="rate-name">费率名称  </span><input id="named" type="text" maxlength="10" placeholder="请输入费率名称"/>
+			</div>
+			<div class="outer-scroll">			
+					<div id="gear">
+						<div>
+							<div class="rate">
+								<span class="rate-name">第一档 </span><input id="first-gear" class="input" type="text" value="0"/> 元
+							</div>
+							<div class="rate">
+								<span class="rate-name"> </span><input id="cellingamount" class="input" type="text" placeholder="上限金额"/> 元
+							</div>
+							<div class="rate">
+								<span class="rate-name"> </span><input id="peakrate" class="input" type="text" placeholder="费率"/> %
+							</div>
+							<div class="rate">
+								<span class="rate-name"> </span><input id="surchargevalue" class="input" type="text" placeholder="附加金额"/> 元
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="rate">
+				<span class="rate-name"> </span><span class="add-del" id="add-one">+</span>
+			</div>
+			<div class="rate">
+				<span class="rate-name"> </span><span class="add-del" id="add-sure">保存</span>
+			</div>
+		</div>
+	</body> 
+	
+	<script>
+		var html = ``;
+		//删除函数
+		function del(){
+			$("#mask").show();
+			$("#del-one").show();
+		}
+		function del1(){
+			$("#mask").show();
+			$("#del-two").show();
+			var thisli = $(this).parents().closest(".buyback-detail");
+			$("#suredel-two").on("click",function(){
+				//console.log(thisli.text())
+				//删除节点
+				thisli.remove();
+				//thisli.hide();
+				canceldel();
+			})
+		}
+		//不能被删除
+		$("#suredel-one").click(canceldel);
+		//取消删除
+		$("#canceldel").click(canceldel);
+		function canceldel(){
+			$("#mask").hide();
+			$("#del-one").hide();
+			$("#del-two").hide();
+		}
+		//新增/编辑函数
+		function add(){
+			$("#mask").show();
+			$("#add-rate").show();
+			console.log($(this).text())
+		}
+		//添加一行
+		$("#add-one").click(function(){
+			html = `<div>
+						<div class="rate">
+							<span class="rate-name">第一档 </span><input id="first-gear" class="input" type="text" value="0"/> 元
+						</div>
+						<div class="rate">
+							<span class="rate-name"> </span><input id="cellingamount" class="input" type="text" placeholder="上限金额"/> 元
+						</div>
+						<div class="rate">
+							<span class="rate-name"> </span><input id="peakrate" class="input" type="text" placeholder="费率"/> %
+						</div>
+						<div class="rate">
+							<span class="rate-name"> </span><input id="surchargevalue" class="input" type="text" placeholder="附加金额"/> 元
+						</div>
+					</div>`
+				$("#gear").append(html)
+		})
+		$("#add-sure").click(function(){
+			var named = $("#named").val();
+			var gear = $("#first-gear").val();
+			var amount = $("#cellingamount").val();
+			var park = $("#peakrate").val();
+			var survalue = $("#surchargevalue").val();
+			html = `<li class="buyback-detail">
+				<ul class="detail-list">
+					<li >${named}</li>
+					<li>${gear}元~${amount}元（含${amount}元） <span>费率：${park}%</span> <span>附加金额：${survalue}元</span></li>
+					<li class="last">
+						<div class="manage">
+							<span class="edit">编辑</span><span class="delete">删除</span>
+						</div>
+					</li>
+				</ul>
+			</li>`
+			$(".content-list").append(html);
+			$("#add-rate").hide();
+			$("#mask").hide();
+		})
+		//取消
+		$("#mask").click(function cancel(){
+			$("#mask").hide();
+			$("#add-rate").hide();
+			$("#del-one").hide();
+			$("#del-two").hide();
+		});
+		
+		$(".content-list").on("click",".edit",add);
+		$(".content-list").on("click",".delete",del1);
+		$(".add-buyback").click(add);
+	</script>
+</html>

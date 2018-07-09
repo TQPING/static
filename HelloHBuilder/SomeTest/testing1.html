@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>电子邮件地址验证程序</title>
+<script language="javascript" type="text/javascript">
+//<![CDATA[
+ function check( email_address )
+ {
+  var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+  if ( regex.test( email_address ) )
+  {
+    
+   var user_name = email_address.replace( regex, "$1" );
+   var domain_name = email_address.replace( regex, "$2" );
+   var alert_string = "您输入的电子邮件地址合法\n\n";
+   alert_string += "用户名：" + user_name + "\n";
+   alert_string += "域名：" + domain_name;
+   window.alert( alert_string );
+   return true;
+  }
+  else
+  {
+   window.alert( "您输入的电子邮件地址不合法" );
+   return false;
+  }
+ }
+//]]>
+</script>
+</head>
+<body style="text-align: center;">
+<h1>电子邮件地址验证程序</h1>
+请输入电子邮件地址：<input id="email_address" type="text" style="width: 300px;" /><br />
+<input type="button" value="验证电子邮件地址" onclick="return check(document.getElementById('email_address').value);" />
+</body>
+</html>

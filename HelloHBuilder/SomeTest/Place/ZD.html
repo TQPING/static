@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>ZD</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			.body-box{
+				background: url(PIC/bg.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.top-box{
+				text-align: center;
+				width: 100%;
+				padding-top: 70px;
+			}
+			.top-box>img{
+				width: 50%;
+			}
+			.center-box{
+				text-align: center;
+				width: 100%;
+				padding-top: 40px;
+			}
+			.center-box>img{
+				width: 70%;
+			}
+			.explain-con{
+				text-align: center;
+				color: #fff;
+				padding: 30px 10%;
+			}
+			.wexin-ew{
+				width: 100%;
+			}
+			.wexin-left,.wexin-right{
+				float: left;
+				width: 50%;
+				text-align: center;
+			}
+			.wexin-left>li,.wexin-right>li{
+				margin-top: 30px;
+			}
+			
+			.left-img,.right-img{
+				width: 70%;
+			}
+			.fixing-nameI,.fixing-nameA{
+				color: #fff;
+			    border: 1px solid #fff;
+			    border-radius: 20px;
+			}
+			.fixing-nameI{
+				padding: 10px 40px;
+			}
+			.fixing-nameA{
+				padding: 10px 20px;
+			}
+			.bottom-box{
+				text-align: center;
+				padding: 100px 0 40px;
+				color: #fff;
+			}
+			.enter-sev{
+				padding: 10px 100px;
+				border: 1px solid #fff;
+				border-radius: 20px;
+			}
+		</style>
+		<script src="../../jquery-2.1.1.min.js"></script>
+	</head>
+
+	<body class="body-box">
+		<div class="top-box"> 
+			<img src="PIC/logo.png" alt="" />
+		</div>
+		<div class="center-box"> 
+			<img src="PIC/text.png" alt="" />
+		</div>
+		<p class="explain-con">覆盖ios、Android、Windows、Mac多个平台支持全业务功能</p>
+		<div class="wexin-ew clearfix">
+			<ul class="wexin-left">
+				<li>
+					<img class="left-img" src="PIC/ios.png"/>
+				</li>
+				<li>
+					<span class="fixing-nameI">ios 下载</span>
+				</li>
+			</ul>
+			<ul class="wexin-right">
+				<li>
+					<img class="right-img" src="PIC/Android.png"/>
+				</li>
+				<li>
+					<span class="fixing-nameA">Android 下载</span>
+				</li>
+			</ul>
+		</div>
+		<div class="bottom-box">
+			<span class="enter-sev">进入SVE平台</span>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			//设置body的宽高显示背景图片
+			var height = window.innerHeight;
+			var width = window.innerWidth;
+			$(".body-box").css("min-width",width);
+			$(".body-box").css("min-height",height);
+		})
+		
+	</script>
+
+</html>

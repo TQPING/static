@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-touch-fullscreen">    
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+		<title>用户注册</title>
+		<style type="text/css">
+			body{margin: 0;padding: 0;font-size: 16px;}
+			a {
+				text-decoration: none;color: #000000;
+			}
+			
+			ul,li {
+				list-style: none;
+				margin: 0;padding: 0;
+			}
+			p,div{margin: 0;padding: 0;}
+			/*清除浮动代码*/
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			header{
+				background-color: #FFFFFF;
+				line-height: 46px;
+				font-size: 16px;
+				padding: 0 12px;
+				text-align: center;
+				box-shadow: 0px 5px 5px #DEDDDB;
+			}
+			header span{float: left;}
+			header p{display: inline-block;}
+			.ul_main{margin-top: 10px;background-color: #FFFFFF;}
+			.ul_main li{padding: 0 20px;line-height: 46px;}		
+			.li_l{width: 20px;float: left;margin-top: 3px;}	
+			.li_l img{width: 100%;}
+			.li_c{margin-left: 10px;padding:  0 10px;width: 74%;float: left;border-bottom: 1px solid #CECECE;}
+			.li_c input{width: 100%;border: 0;outline: none;line-height: 46px;font-size: 16px;}
+			.li_r{float: right;width: 20px;margin-top: 3px;}
+			.li_r img{width: 100%;}
+			.btn{
+				margin: 100px auto;
+				background-color: #E94B2E;
+				line-height: 46px;text-align: center;
+				color: #FFFFFF;font-size: 16px;
+				width: 90%;border-radius: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="clearfix">
+			<span>&lt;</span>
+			<p>新用户注册</p>
+		</header>
+		<ul class="ul_main">
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请输入手机号码" /></div>
+				<div class="li_r"><img src="icon_clear.png"/></div>
+			</li>
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请输入密码" /></div>
+				<div class="li_r"><img src="icon_clear.png"/></div>
+			</li>
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请再次输入密码" /></div>
+				<div class="li_r"><img src="icon_clear.png"/></div>
+			</li>
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请输入您的姓名" /></div>
+				<div class="li_r"><img src="icon_clear.png"/></div>
+			</li>
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请选择您所在的省、市、区" /></div>
+			</li>
+			<li class="clearfix">
+				<div class="li_l"><img src="icon_phone.png"/></div>
+				<div class="li_c"><input type="tel" name="" id="" placeholder="请输入您的详细地址" /></div>
+				<div class="li_r"><img src="icon_clear.png"/></div>
+			</li>
+			<div class="btn">立即注册</div>
+		</ul>
+	</body>
+</html>

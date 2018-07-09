@@ -1,0 +1,124 @@
+﻿.btn-forlimit-add,.btn-forlimit-show,.btn-forlimit-delete,.btn-forlimit-edit,.btn-forlimit-view {
+    display:none;
+}
+.menu-list-line {
+    height: 90px;
+    position: relative;
+    line-height: 0px;
+}
+
+    .menu-list-line img {
+        width: 50px;
+    }
+
+    .menu-list-line .img {
+        margin-top: 20px;
+        line-height: 0px;
+        display: block;
+        width: 100%;
+    }
+
+    .menu-list-line .span {
+        width: 100%;
+        position: absolute;
+        bottom: 5px;
+        left: 0px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+        float: left;
+        letter-spacing:2px;
+    }
+
+.bg-nextLevel {
+    background: #48c3d3;
+}
+
+.bg-look-through {
+    background: #489dd3;
+}
+
+.bg-already-open {
+    background: #62cca4;
+}
+
+.recent-img {
+    width: 18px;
+    margin-right: 10px;
+    float: left;
+}
+
+.info-content {
+    position: relative;
+}
+
+    .info-content .arrow {
+        position: absolute;
+        right: 10px;
+        top: 36px;
+        width: 18px;
+    }
+            .clickcolor {
+            color: #fff !important;
+        }
+
+        /*.choose-role {
+            color: gray;
+            text-align: center;
+        }*/
+
+        #control-sidebar-home-tab a:hover {
+            cursor: pointer;
+        }
+        .role-list {
+            width: 100%;
+            list-style-type: none;
+            margin: 0px;
+            display: none;
+        }
+            .role-list ul {
+                list-style-type: none;
+                margin: 0px;
+                padding:0px;
+            }
+             .role-list li {
+                list-style: none;
+            }
+        .role-list-btn {
+            display:block;
+            text-align:center;
+            color:#fff;
+        }
+            
+        .role-list-btn:hover {
+            color:#fff;
+                }
+             .choose-role {
+                color: #f2f2f2;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 12px;
+                border-bottom:1px solid #222d32;
+                background:#2c3b42;
+            }
+            .choose-role:hover {
+                background:#1e282c;
+                color:gray;
+            }
+
+
+                .bs-bars{
+        width:100% !important;
+    }
+::-webkit-input-placeholder {
+    padding-left:10px;
+}
+button {
+    border-radius:3px;
+}
+
+.sidebar-menu .treeview-menu > li {line-height:25px;}
+

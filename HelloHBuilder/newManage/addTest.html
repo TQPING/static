@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="DC.creator" content="Ethan Marcotte - http://unstoppablerobotninja.com/">
+		<meta name="DC.language" content="en">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>管理中心添加</title>
+	</head>
+	<link href="Content/Validator/bootstrapValidator.min.css" rel="stylesheet" />
+	<link href="Content/menu/menu.css" rel="stylesheet">
+	<link href="Content/Validator/style.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="http://demo.htmleaf.com/1502/201502141811/css/default.css">
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="Scripts/jquery-3.1.1.min.js"></script>
+	<style>
+		.section:after,
+		ul.nav:after {
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+		
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		font,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		/*tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td */
+		
+		{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			font-size: 100%;
+			vertical-align: baseline;
+			background: transparent;
+		}
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td {
+			
+		}
+		
+		body {
+			line-height: 1;
+		}
+		
+		ol,
+		ul {
+			list-style: none;
+		}
+		
+		blockquote,
+		q {
+			quotes: none;
+		}
+		
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+		
+		ins {
+			text-decoration: none;
+		}
+		
+		del {
+			text-decoration: line-through;
+		}
+		
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100%;
+		}
+		
+		body {
+			/*background: #E4E4E4 url("http://alistapart.com/d/responsive-web-design/ex/site/bg.png");*/
+			color: #292929;
+			color: rgba(0, 0, 0, 0.82);
+			font: normal 100% Cambria, Georgia, serif;
+			-moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			-webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+			-webkit-text-size-adjust: none;
+		}
+		
+		a {
+			color: #890101;
+			text-decoration: none;
+			-moz-transition: 0.2s color linear;
+			-webkit-transition: 0.2s color linear;
+			transition: 0.2s color linear;
+		}
+		
+		a:hover {
+			color: #DF3030;
+		}
+		
+		select,
+		option {
+			width: 100%;
+			height: 34px;
+		}
+		
+		input[type=file] {
+			width: 100px;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		
+		.check-row {
+			padding: 5px 0;
+			width: 100%;
+			min-height: 35px;
+			border-bottom: 1px solid #d3d3d3;
+		}
+		
+		.check-head {
+			position: relative;
+			width: 100%;
+			text-align: center;
+			height: 35px;
+			line-height: 35px;
+			font-size: 18px;
+		}
+		
+		.check-head img {
+			width: 21px;
+			position: absolute;
+			left: 0px;
+			top: 6px;
+		}
+		
+		#delTr {
+			margin-left: 2px;
+		}
+		
+		h4 {
+			margin: 20px 50px;
+		}
+		
+		#addDetail {
+			display: none;
+			border: 1px solid #ddd;
+			width: 250px;
+			position: fixed;
+			top: 150px;
+			left: 20%;
+			background: #DFDFDF;
+			z-index: 3;
+		}
+		
+		#mask {
+			background: #000000;
+			opacity: 0.5;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			display: none;
+		}
+		
+		.addTitle {
+			display: inline-block;
+			width: 105px;
+			text-align: right;
+		}
+		
+		.addCon {
+			display: inline-block;
+			width: 90px;
+			height: 20px;
+		}
+		
+		.save1 {
+			margin: 15px 0 20px 30px;
+			padding: 2px 15px;
+			display: inline-block;
+			border: 1px solid #666;
+			text-align: center;
+		}
+		
+		.cancel1 {
+			margin: 15px 0 20px 30px;
+			padding: 2px 15px;
+			display: inline-block;
+			border: 1px solid #666;
+			text-align: center;
+		}
+	</style>
+
+	<body>
+		<div style="margin: 20px;">
+			<form id="holderform" method="post" class="form-horizontal bv-form" onsubmit="return false;">
+				<div class="check-row">
+					<div class="check-head">
+						<img onclick="cancel()" src="Images/top_return.png">管理中心添加
+					</div>
+				</div>
+
+				<div class="form-group" style="margin-top: 10px;">
+					<label class="col-lg-3 control-label">状态 </label>
+					<!--<div class="col-lg-5">-->
+					<label class="col-lg-1 control-label"><input name="RecommendedType" value="1" onclick="Manageradd.chooseType(this.value)" checked="" type="radio">已签约</label>
+					<label class="col-lg-1 control-label"><input name="RecommendedType" value="0" onclick="Manageradd.chooseType(this.value)" type="radio">已开通</label>
+					<!--</div>-->
+				</div>
+				<div id="DeclarationType">
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">*登录手机号</label>
+						<input type="text" />
+					</div>
+
+				</div>
+				<div class="form-group has-feedback">
+					<label class="col-lg-3 control-label">*管理中心名称</label>
+					<input type="text" />
+				</div>
+				<div class="form-group">
+					<label class="col-lg-3 control-label">*开通所在省</label>
+					<!--<select type="text" style="display: inline-block;width: 170px;height: 27px;">
+						<option value="请选择省">请选择省</option>
+					</select>-->
+					<div class="col-lg-5">
+						<div id="treeview-checkable" class="">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">*管辖区域</label>
+					<!--<input type="text" />-->
+					<div class="col-lg-5">
+						<div id="treeview-JurisdictionArea" class=""></div>
+					</div>
+				</div>
+				<div class="display_person">
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">企业名称</label>
+						<input type="text" />
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">法人姓名</label>
+						<input type="text" />
+					</div>
+
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">营业执照号</label>
+						<input type="text" />
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">详细地址</label>
+						<input type="text" />
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">客服经理</label>
+						<input type="text" />
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">客服经理电话</label>
+						<input type="text" />
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-3 control-label">*推荐人手机号</label>
+						<input type="text" />
+						<p style="color: limegreen;padding-left: 100px;display: none;">找到用户 重庆市毛毛贸易公司</p>
+						<p style="color: orange;padding-left: 100px;display: none;">该手机号用户未认证为商家</p>
+						<p style="color: orange;padding-left: 100px;display: none;">该手机号无对应用户</p>
+						<p style="color: orange;padding-left: 100px;display: none;">手机号格式不正确</p>
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-lg-3 control-label">推荐管理中心</label>
+						<select type="text" style="display: inline-block;width: 80px;height: 27px;">
+							<option value="请选择省">请选择省</option>
+						</select>
+						<select type="text" style="display: inline-block;width: 80px;height: 27px;">
+							<option value="请选择省">请选择省</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="form-group has-feedback">
+					<label class="col-lg-3 control-label">推荐管理中心占股比例</label>
+					<input type="text" style="width: 50px;" />% <span style="color: red;">总比例不超过100%</span>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="col-lg-3 control-label" style="float: left;margin-right: 5px;">备注</label>
+					<textarea name="" rows="4" cols="30"></textarea>
+				</div>
+				<div class="form-group has-feedback">
+					<label class="col-lg-3 control-label">占股人员</label>
+					<span class="col-lg-5" style="margin-left: 100px;width: 60px;border: 1px solid #000;padding: 2px 15px;border-radius: 3px;" onclick="Add()">添加</span>					
+				</div>
+				<div class="form-group has-feedback">
+					<label class="col-lg-2 control-label"></label>
+					<div class="col-lg-5">
+						<table id="table" style="margin-top: -10px;border-collapse: collapse;text-align: center;">
+							<tr>
+								<td style="background-color: dodgerblue;border: 1px solid #ccc;color: #fff;padding: 4px 0;">姓名</td>
+								<td style="background-color: dodgerblue;border: 1px solid #ccc;color: #fff;padding: 4px 0;">电话</td>
+								<td style="background-color: dodgerblue;border: 1px solid #ccc;padding: 4px 0;color: #fff;">身份</td>
+								<td style="background-color: dodgerblue;border: 1px solid #ccc;padding: 4px 0;color: #fff;">占股比例</td>
+								<td style="background-color: dodgerblue;border: 1px solid #ccc;padding: 4px 0;color: #fff;">操作</td>
+							</tr>
+							<tr>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">四川省</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">15698756324</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">武侯区</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">已签约</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">
+									<span>编辑</span>
+									<span>删除</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">四川省</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">15698756324</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">武侯区</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">已签约</td>
+								<td style="border: 1px solid #ccc;padding: 4px 0;">
+									<span>编辑</span>
+									<span>删除</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--添加管理（占股）人员-->
+		<div id="addDetail">
+			<h4>添加管理中心人员</h4>
+			<ul>
+				<li>
+					<span class="addTitle">*登陆手机号</span>
+					<input class="addCon" type="text" />
+				</li>
+				<li>
+					<span class="addTitle">*管理中心名称</span>
+					<input type="text" class="addCon" />
+				</li>
+				<li>
+					<span class="addTitle">*身份</span>
+					<select type="text" class="addCon">
+						<option value="总监">总监</option>
+					</select>
+				</li>
+				<li>
+					<span class="addTitle">*占股比例</span>
+					<input type="text" class="addCon" />%
+				</li>
+			</ul>
+			<div>
+				<span class="save1">保存</span>
+				<span class="cancel1" onclick="cel()">取消</span>
+			</div>
+		</div>
+		<div id="mask" onclick="cel()"></div>
+	</body>
+	<script src="Scripts/plugins/Validator/bootstrapValidator.min.js"></script>
+	<script src="Scripts/plugins/Validator/zh_CN.js"></script>
+	<script src="Scripts/plugins/upload/ajaxfileupload3.js"></script>
+	<script type="text/javascript" src=" Scripts/plugins/dmuploader/dmuploader.min.js"></script>
+	<script type="text/javascript" src="Scripts/myupload.js"></script>
+	<script type="text/javascript" src="Scripts/pages/center/manageAdd.js"></script>
+	<script src="http://demo.htmleaf.com/1502/201502141811/js/bootstrap-treeview.js"></script>
+
+	<script>
+		//添加弹窗操作
+		function Add() {
+			$("#addDetail").show();
+			$("#mask").show();
+		}
+
+		function cel() {
+			$("#addDetail").hide();
+			$("#mask").hide();
+		}
+
+		var defaultData = [];
+		var defaultData2 = [];
+		var provinceData = [];
+		//初始化所属区域
+		function initArea() {
+			var checkSetting1 = {
+				levels: 1,
+				data: defaultData,
+				showIcon: false,
+				showCheckbox: false,
+				onNodeChecked: function(event, node) {
+					//  $('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
+				},
+				onNodeUnchecked: function(event, node) {
+					//   $('#checkable-output').prepend('<p>' + node.text + ' was unchecked</p>');
+				},
+				onNodeSelected: function(event, node) {
+					areaList = [];
+					initTree(node.href);
+					//debugger;
+					//$checkableTree.treeview('checkNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('checkNode', [[node], { silent: $('#chk-check-silent').is(':checked') }]);
+				},
+				onNodeUnselected: function(event, node) {
+					//$checkableTree.treeview('uncheckNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('uncheckNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('uncheckNode', [[node], { silent: $('#chk-check-silent').is(':checked') }]);
+				}
+			};
+			var $checkableTree = $('#treeview-checkable').treeview(checkSetting1);
+		}
+		//初始化管辖区域
+		var areaList = [];
+		//删除数组值元素
+		function removeByValue(arr, val) {
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] == val) {
+					arr.splice(i, 1);
+					break;
+				}
+			}
+		}
+
+		function initTree2() {
+			var checkSetting2 = {
+				data: defaultData2,
+				showIcon: false,
+				showCheckbox: true,
+				onNodeChecked: function(event, node) {
+					areaList.push(node.href);
+					console.log(areaList);
+					//  $('#checkable-output').prepend('<p>' + node.text + ' was checked</p>');
+				},
+				onNodeUnchecked: function(event, node) {
+					removeByValue(areaList, node.href);
+					console.log(areaList);
+					//   $('#checkable-output').prepend('<p>' + node.text + ' was unchecked</p>');
+				},
+				onNodeSelected: function(event, node) {
+					//$checkableTree.treeview('checkNode', node.nodeId, { silent: true });
+				},
+				onNodeSelected: function(event, node) {
+					// $checkableTree.treeview('checkNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('checkNode', [[node], { silent: $('#chk-check-silent').is(':checked') }]);
+				},
+				onNodeUnselected: function(event, node) {
+					//$checkableTree.treeview('uncheckNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('uncheckNode', node.nodeId, { silent: true });
+					//$checkableTree.treeview('uncheckNode', [[node], { silent: $('#chk-check-silent').is(':checked') }]);
+				}
+
+			};
+			var $checkableTreeJurisdictionArea = $('#treeview-JurisdictionArea').treeview(checkSetting2);
+		}
+
+		function initTree(parentId) {
+			//第一级遍历
+			for(var i = 0; i < defaultData.length; i++) {
+				if(defaultData[i].nodes != null) {
+					if(defaultData[i].href == parentId) {
+						defaultData2 = defaultData[i].nodes;
+						initTree2();
+						break;
+					} else {
+						//第二级遍历
+						for(var j = 0; j < defaultData[i].nodes.length; j++) {
+							if(defaultData[i].nodes[j].nodes != null) {
+								if(defaultData[i].nodes[j].href == parentId) {
+									//赋值
+									//if (defaultData[i].nodes[j].nodes != undefined) {
+									//    defaultData2 = defaultData[i].nodes[j].nodes;
+									//}
+									//else {
+									//    var listData = [];
+									//    listData.push(defaultData[i].nodes[j]);
+									//    defaultData2 = listData;
+									//}
+									defaultData2 = defaultData[i].nodes[j].nodes;
+									initTree2();
+									break;
+								} else {
+									//第三级遍历
+									for(var z = 0; z < defaultData[i].nodes[j].nodes.length; z++) {
+										if(defaultData[i].nodes[j].nodes[z].href == parentId) {
+											if(defaultData[i].nodes[j].nodes[z].nodes != null) {
+												defaultData2 = defaultData[i].nodes[j].nodes[z].nodes;
+											} else {
+												var listData = [];
+												listData.push(defaultData[i].nodes[j].nodes[z]);
+												defaultData2 = listData;
+											}
+											initTree2();
+											break;
+										}
+									}
+								}
+							} else {
+								if(defaultData[i].nodes[j].href == parentId) {
+									var listData = [];
+									listData.push(defaultData[i].nodes[j]);
+									defaultData2 = listData;
+									initTree2();
+									break;
+								}
+							}
+						}
+					}
+				} else {
+					if(defaultData[i].href == parentId) {
+						var listData = [];
+						listData.push(defaultData[i]);
+						defaultData2 = listData;
+						initTree2();
+						break;
+					}
+				}
+			}
+		}
+
+		loadData = function() {
+
+			$.get('@Url.Action("GetRgnList", "Center")', {}, function(data) {
+
+				//区域
+
+				defaultData = data.data;
+				console.log(defaultData);
+				initArea();
+
+			});
+		};
+
+		loadProvinceData = function() {
+			$.get('@Url.Action("GetAllRgn", "Center")', {}, function(data) {
+				//省级
+				provinceData = data.data;
+				var _html = "";
+
+				_html += '<option value="0">请选择省</option>';
+				for(var i = 0; i < provinceData.length; i++) {
+					_html += '<option value="' + provinceData[i].RgnCode + '">' + provinceData[i].RgnName + '</option>';
+				}
+				$("#provinceChoose").html(_html);
+
+			});
+		};
+
+		loadAreaCenter = function(code) {
+			$.get('@Url.Action("GetAreaManagerInfo", "Center")', {
+				areaCode: code
+			}, function(data) {
+				console.log(data.data);
+				debugger;
+				var _html = "";
+				_html = "<option value='0'>请选择管理中心</option>";
+				for(var i = 0; i < data.data.length; i++) {
+					_html += '<option value="' + data.data[i].CenterGuid + '">' + data.data[i].CenterName + '</option>';
+				}
+				$("#manageCenterChoose").html(_html);
+			});
+		};
+
+		selectedCenter = function() {
+			var areaCode = $("#provinceChoose option:selected").val();
+			loadAreaCenter(areaCode);
+		};
+		selecetedManage = function() {
+			var areaCode = $("#manageCenterChoose option:selected").val();
+			$("#ManagementCenterId").val(areaCode);
+
+		};
+		$(function() {
+
+			loadData();
+
+		});
+		cancel = function() {
+			history.go(-1);
+			//$("#load").loading("/Holder/Holder?page=" + page + "");
+			return;
+		};
+	</script>
+
+</html>

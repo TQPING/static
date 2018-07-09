@@ -1,0 +1,97 @@
+﻿.check-block {
+    width: 100%;
+
+    position:relative;
+    /*max-width:426px;*/
+}
+
+.check-row {
+    padding:5px 0;
+    width: 100%;
+    /*max-width: 426px;*/
+    /*background: #fff;*/
+    min-height:35px;
+    border-bottom:1px solid #d3d3d3;
+}
+
+    .check-row .title {
+        width: 8em;
+        float: left;
+        padding-right: 10px;
+    }
+
+    .check-row .ctxt {
+        word-break: break-all;
+        float: left;
+    }
+
+    .check-row a {
+        width: 100%;
+        text-align: center;
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        /*border: 1px solid gray;
+        border-radius: 8px;*/
+        color: gray;
+        cursor: pointer;
+    }
+
+        .check-row a img {
+            margin-left: 5px;
+            width: 15px;
+        }
+
+        .check-row a:hover {
+        }
+
+.check-head {
+    position:relative;
+    width: 100%;
+    text-align: center;
+    height:35px;
+    line-height:35px;
+    font-size:18px;
+}
+    .check-head img {
+        width:21px;
+        position:absolute;
+        left:0px;
+        top:6px;
+    }
+.check-btn-group {
+    width:100%;
+    margin-top:20px;
+}
+    .check-btn-group .line {
+        width:100%;
+        height:35px;
+        line-height:35px;
+        margin-top:5px;
+    }
+    .check-btn-group a {
+        text-decoration:none;
+        display:block;
+        width:40%;
+        margin:0 10px;
+        float:left;
+    }
+     .check-btn-group .a-single {
+        text-align:center;
+        display:block;
+        float:none;
+        text-decoration:none;
+        display:block;
+        width:40%;
+        margin:0 10px;
+        margin:0 auto;
+    }
+label {
+    margin: 0 0 0;
+}
+    .mao-point {
+        position:fixed;
+        width:20px;
+        bottom:70px;
+        right:10px;
+    }

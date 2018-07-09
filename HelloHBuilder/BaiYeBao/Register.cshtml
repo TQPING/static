@@ -1,0 +1,369 @@
+﻿ @{ Layout = null; }
+
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>注册</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<!--<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/bootstrap.js"></script>
+	<script src="~/Scripts/MD5.js"></script>-->
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html {
+			font-size: 62.5%;
+			/*10 ÷ 16 × 100% = 62.5%*/
+		}
+		
+		body {
+			font-size: 1.4rem;
+			/*1.4 × 10px = 14px */
+		}
+		
+		h1 {
+			font-size: 2.4rem;
+			/*2.4 × 10px = 24px*/
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		ul li {
+			list-style: none;
+		}
+		/*清除浮动代码*/
+		
+		.clearfix:after {
+			content: ".";
+			/*加一段内容*/
+			display: block;
+			/*让生成的元素以块级元素显示，占满剩余空间*/
+			height: 0;
+			/*避免生成的内容破坏原有布局高度*/
+			clear: both;
+			/*清除浮动*/
+			visibility: hidden;
+			/*让生成的内容不可见*/
+		}
+		
+		.clearfix {
+			zoom: 1;
+			/*为IE6，7的兼容性设置*/
+		}
+		
+		header {
+			padding: 20px 10px;
+		}
+		
+		.goback {
+			color: #C0BFC4;
+			float: left;
+			font-size: 2.5rem;
+			margin-top: -0.5rem;
+		}
+		
+		.title {
+			text-align: center;
+			font-size: 1.8rem;
+		}
+		
+		hr {
+			height: 1rem;
+			background-color: #DDDDDD;
+			margin: 0;
+			border: 0;
+		}
+		
+		.content {
+			margin: 0 1rem;
+		}
+		
+		.content-ul>li {
+			padding: 1.5rem 0;
+			border-bottom: 1px solid #CCCCCC;
+		}
+		
+		.content>li:last-child {
+			border-bottom: none;
+		}
+		
+		.content-ul>li>span {
+			display: inline-block;
+			width: 22%;
+		}
+		
+		.content-ul>li>input {
+			border: none;
+			display: inline-block;
+			outline: none;
+			width: 75%;
+		}
+		
+		.content-ul>li:last-child>input {
+			width: 45%;
+		}
+		
+		#sendCode {
+			color: #fff;
+			background-color: #f0932f;
+			padding: 0.7rem;
+			border-radius: 5px;
+		}
+		
+		.footer {
+			padding: 5rem 0;
+			text-align: center;
+		}
+		
+		#add-sure {
+			padding: 1rem 10rem;
+			border-radius: 5px;
+			color: #fff;
+			background-color: #D53C27;
+		}
+		
+		#mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #fff;
+			opacity: 0.5;
+			display: none;
+			text-align: center;
+		}
+		#mask>img{
+			margin-top: 30%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="mask">
+		<img src="big_load.gif"/>
+	</div>
+	<header>
+		<a class="goback">&lt;</a>
+		<div class="title">用户注册</div>
+	</header>
+	<hr />
+	<form id="loginForm" method="post" onsubmit="return false">
+		<div class="content">
+			<ul class="content-ul">
+				@*
+				<li>
+					<span>姓名</span>
+					<input type="text" name="Name" id="Name" maxlength="20" value="" placeholder="请输入姓名" />
+				</li>
+				<li>
+					<span>身份证号</span>
+					<input type="text" maxlength="18" name="IdentityCard" id="IdentityCard" value="" placeholder="请输入身份证号" />
+				</li>*@
+				<li>
+					<span>手机号</span>
+					<input type="number" oninput="if(value.length>11)value=value.slice(0,11)" name="Phone" id="Phone" value="" placeholder="请输入手机号" />
+				</li>
+				<li>
+					<span>邮箱</span>
+					<input type="email" name="Email" id="email" value="" placeholder="请输入邮箱" />
+				</li>
+				<li>
+					<span>密码</span>
+					<input type="password" maxlength="18" name="Pwd1" id="Pwd1" value="" placeholder="请输入密码" />
+				</li>
+				<li>
+					<span>确认密码</span>
+					<input type="password" maxlength="18" name="Pwd" id="Pwd" value="" placeholder="请输入密码" />
+				</li>
+				@*
+				<li>
+					<span>开户银行</span>
+					<input type="text" name="BankName" maxlength="20" id="BankName" value="" placeholder="请输入开户银行" />
+				</li>
+				<li>
+					<span>支行信息</span>
+					<input type="text" name="Branch" id="Branch" maxlength="20" value="" placeholder="请输入支行信息" />
+				</li>
+				<li>
+					<span>银行账户</span>
+					<input type="text" name="BankUserName" maxlength="20" id="BankUserName" value="" placeholder="请输入银行户主" />
+				</li>
+				<li>
+					<span>银行卡号</span>
+					<input type="number" name="CardNumber" maxlength="25" id="CardNumber" value="" placeholder="请输入银行卡号" />
+				</li>*@
+
+				<!--发送短信验证的-->
+				<!--<li>
+                    <span>验证码</span>
+                    <input type="number" name="codeNum" id="codeNum" value="" placeholder="请输入验证码" />
+                    <span id="sendCode">发送验证码</span>
+                </li>-->
+			</ul>
+		</div>
+
+	</form>
+	<div class="footer">
+		<span id="add-sure" onclick="exchangeSubmit()">
+            注册
+        </span>
+	</div>
+
+</body>
+
+<script>
+	$(function() {
+		
+		var mask = document.querySelector("#mask"); //遮罩层
+		//根据窗口大小来调整mask的宽高
+		function showmask() {
+			var height = $(window).height();
+			var width = $(window).width();
+			mask.style.height = height + "px";
+			mask.style.width = width + "px";
+		}
+		showmask();
+		window.onresize = function(){
+			showmask();
+		};
+		//取消遮罩层
+		function Close() {
+			mask.style.display = "none";
+			$("body").css("overflow","auto");
+		}
+		//点击mask
+		//mask.onclick = Close;
+
+		//判断用户输入的电子邮箱格式是否正确
+		function checkEmail() {　　}
+		exchangeSubmit = function() {
+			
+			//显示遮罩层
+			$("body").css("overflow","hidden");
+			showmask();
+			mask.style.display = "block";
+			
+			/*var formData = new FormData($("#loginForm")[0]);
+			$("#add-sure").attr("disabled", true);
+			var p1 = $("#Pwd1").val();
+			var p2 = $("#Pwd").val();
+			var pwdreg = /^(?![a-zA-z]+$)(?!\d+$)(?![!@@#$%^&.*]+$)[a-zA-Z\d!@@#$%^&.*]+$/;
+			if(!pwdreg.test(p1)) {
+				alert("密码必须是字母、数字、符号任意两种的组合");
+				return;
+			}
+			if(p1 == null || p1 == "") {
+				alert("请输入密码!")
+				return;
+			}
+			if(p1 != p2) {
+				alert("两次密码不一致!");
+				return;
+
+			}
+			if(p1.length < 6) {
+				alert("密码长度至少6位!");
+				return;
+
+			}*/
+			
+			
+
+			/*var myforms = document.forms;　　
+			var myemail = myforms[0].email.value;
+			var myReg = /^[a-zA-Z0-9_-]+@@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+			if(!myReg.test(myemail)) {
+				alert("邮箱格式不对!");　　　　
+				return;
+			}
+			var PID = "@ViewBag.PID";
+			var SID = "@ViewBag.SID";
+			var type = "@ViewBag.type";
+			var IID = "@ViewBag.IID";
+			var introducer = "@ViewBag.introducer";*/
+			//if ($("#Name").val() == null || $("#Name").val() =="") {
+			//    alert("姓名不能为空!");
+			//    return;
+			//}
+			//if ($("#IdentityCard").val() == null || $("#IdentityCard").val() == "") {
+			//    alert("身份证号不能为空!");
+			//    return;
+			//}
+			//if ($("#Phone").val() == null || $("#Phone").val() == "") {
+			//    alert("手机号不能为空!");
+			//    return;
+			//}
+
+			//if ($("#BankName").val() == null || $("#BankName").val() == "") {
+			//    alert("开户行不能为空!");
+			//    return;
+			//}
+			//if ($("#Branch").val() == null || $("#Branch").val() == "") {
+			//    alert("支行信息不能为空!");
+			//    return;
+			//}
+			//if ($("#BankUserName").val() == null || $("#BankUserName").val() == "") {
+			//    alert("银行账户不能为空!");
+			//    return;
+			//}
+			//if ($("#CardNumber").val() == null || $("#CardNumber").val() == "") {
+			//    alert("银行卡号不能为空!");
+			//    return;
+			//}
+
+			//  formData.delete("Pwd");
+			//  formData.append("Pwd", $.md5(p2));
+			/*var Phone = $("#Phone").val().trim();
+			var Pwd = $.md5(p1.trim());
+			$.ajax({
+				url: '/UserInfo/SaveRegister',
+				data: {
+					Phone: Phone,
+					Pwd: Pwd,
+					PID: PID,
+					SID: SID,
+					IID: IID,
+					RoleStatus: type,
+					PPhone: introducer,
+					Email: myemail
+				},
+				type: "post",
+				dataType: 'JSON',
+				//  contentType: "application/json",
+				//  processData: false,
+				//  contentType: false,
+
+			}).done(function(res) {
+				if(res.code == 0) {
+					alert("注册成功!");
+					if(@ViewBag.type == 1) {
+						window.location.href = '/UserInfo/GetBankInfo?SID=' + "@ViewBag.SID";
+
+					} else {
+						window.location.href = '/UserInfo/Login';
+
+					}
+
+				} else if(res.code == -1) {
+					alert(res.msg);
+				} else if((res.code == -2)) {
+					alert(res.msg);
+					window.location.href = '/UserInfo/UpdateEmail?str=' + res.data;
+				}
+				$("#add-sure").attr("disabled", false);
+
+			}).fail(function(res) {
+				debugger;
+				alert("服务器繁忙", '', "error");
+				$("#add-sure").attr("disabled", false);
+			})*/
+		}
+	})
+</script>

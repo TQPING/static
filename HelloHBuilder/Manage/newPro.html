@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+	</head>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/bootstrap.css" />
+	<script src="bootstrap-3.3.7/bootstrap.js"></script>
+
+	<body>
+		<!--轮播图-->
+		<div id="myCarousel" class="carousel slide">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="../img/1.jpg" alt="First slide">
+					<!--<div class="carousel-caption">标题 1</div>-->
+				</div>
+				<div class="item">
+					<img src="../img/2.jpg" alt="Second slide">
+					<!--<div class="carousel-caption">标题 2</div>-->
+				</div>
+				<div class="item">
+					<img src="../img/1.jpg" alt="Third slide">
+					<!--<div class="carousel-caption">标题 3</div>-->
+				</div>
+			</div>
+			<!-- 轮播（Carousel）导航 -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
+			</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
+			</a>
+		</div>
+		<!--导航栏-->
+		<div class="contentner">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">生活如此</a>
+					</div>
+					<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<a href="#">旅游</a>
+							</li>
+							<li>
+								<a href="#">食物</a>
+							</li>
+							<li>
+								<a href="#">段子</a>
+							</li>
+							<li>
+								<a href="#">表情包</a>
+							</li>
+							<li>
+								<a href="#">新闻</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</body>
+
+</html>

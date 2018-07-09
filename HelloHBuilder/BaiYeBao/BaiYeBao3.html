@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百业宝查询</title>
+	</head>
+	<script src="jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		body{
+			background: #eee;
+		}
+		.body {
+			font-size: 14px;
+			padding-top: 10px;
+			padding-left: 10px;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.content {
+			padding-top: 5px;
+		}
+		
+		.roleback {
+			padding-top: 5px;
+			color: deepskyblue;
+		}
+		#mask{
+			display: none;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			background: #000;
+			opacity: 0.5;
+			z-index: 2;
+		}
+		#role-table{
+			border-collapse: collapse;
+			background: #fff;
+			margin: 20px 0 0 110px;
+			width: 80%;
+			border:1px solid #000;
+		}
+		.role-top{
+			width: 350px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.role-tr{
+			width: 350px;
+			height: 60px;
+			line-height: 30px;
+			text-align: center;
+			background-color: #FFF;
+		}
+		#role-name{
+			background: url(xiexian.jpg) no-repeat -20px -5px;
+		    width: 200px;
+		    height: 30px;
+			background-size: 145% 155%;
+			position: relative;
+		}
+		#name1{
+			position: absolute;
+			top: -3px;
+			right: 0;
+		}
+		#name2{
+			position: absolute;
+			top: 10px;
+			left: 0;
+		}
+		.role-part{
+			width: 100px;
+		}
+		.rate-part{
+			width: 150px;
+			color: orange;
+		}
+		.add-rate{
+			border: 1px solid #ccc;
+			padding: 0 5px;
+			border-radius: 50%;
+		}
+		#change-reta{
+			background: #fff;
+			width: 200px;
+			border: 1px solid #000;
+			border-radius: 5px;
+			position: fixed;
+			left: 45%;
+			display: none;
+			z-index: 2;
+		}
+		.change-left{
+			display: inline-block;
+		}
+		.change-left>ul>li{
+			padding-top: 5px;
+			padding-left: 20px;
+		}
+		.change-bottom{
+			padding: 15px 0 10px 20px;
+		}
+		#change-cancel{
+			color: #fff;
+			background: #CCCCCC;
+			padding: 3px 15px;
+			border-radius: 3px;
+			margin-left: 10px;
+		}
+		#change-sure{
+			color: #fff;
+			background: deepskyblue;
+			padding: 3px 15px;
+			border-radius: 3px;
+			margin-left: 20px;
+		}
+		.input{
+			    margin-left: 75px;
+		}
+		
+	</style>
+
+	<body>
+		
+		<div class="body">
+			<!--遮罩层-->
+			<div id="mask"></div>
+			<div>
+				<a href="#">商城管理</a>&gt<a>回购费率</a>
+			</div>
+			<hr />
+			<div class="content">
+				<span class="roleback">角色回购权限设置</span>
+			</div>
+			<table id="role-table" border="1">
+				<tr class="role-top">
+					<td id="role-name" class="tdhead">
+						<div id="name1">
+							接收方
+						</div>
+						<div id="name2">
+							转出方
+						</div>
+					</td>
+					<td>省办</td>
+					<td>管理中心</td>
+					<td>运营商</td>
+					<td>个人买家</td>
+					<td>企业买家</td>
+					<td>个人卖家</td>
+					<td>企业卖家</td>
+					<td>省办</td>
+					<td>管理中心</td>
+					<td>运营商</td>
+					<td>个人买家</td>
+					<td>企业买家</td>
+					<td>个人卖家</td>
+					<td>企业卖家</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">管理中心</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">运营商</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">个人买家</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">企业买家</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">个人卖家</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">企业卖家</td>
+					<td class="rate-part" data-id="2">55</td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part" data-id="2">55</td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+				</tr>
+			</table>
+			<div id="change-reta">
+				<form action="" method="get">
+				<ul>
+					<li class="change-left">
+						<ul>
+							<li>
+								<span>回购汇率1</span>
+								<label><input class="input" name="rate" type="radio" value="回购汇率1" /></label>
+							</li>
+							<li>
+								<span>回购汇率2</span>
+								<label><input class="input" name="rate" type="radio" value="回购汇率2" /></label>
+							</li>
+							<li>
+								<span>回购汇率2</span>
+								<label><input class="input" name="rate" type="radio" value="回购汇率3" /></label>
+							</li>
+						</ul>
+					</li>
+					<li class="change-bottom">
+						<span id="change-cancel">取消</span>
+						<span id="change-sure">确定</span>
+					</li>
+				</ul>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script>
+		var _this;
+		var txt = '';
+		$("#role-table").on("click",".rate-part",function(id){
+			var height = $("body").css("height");
+			$("#mask").css("height",height);
+			$("#mask").show();
+			$("#change-reta").css("top","200px");
+			$("#change-reta").show();
+			_this = $(this);
+			txt = _this.html();
+			console.log(_this.text());
+			$("body").css("overflow","hidden")
+		});
+		//取消修改函数
+		$("#change-cancel").click(cel);
+		$("#mask").click(cel);
+		function cel(){
+			$("#mask").hide();
+			$("#change-reta").hide();
+			_this.html(txt);
+			$("body").css("overflow","auto")
+		}
+		//确定修改函数
+		$("#change-sure").click(function(){
+			var val=$('.change-left input:radio[name="rate"]:checked').val();
+			_this.html(`
+				<div>
+					<input type="checkbox" name="" id="" value="" checked />
+				</div>
+				${val}
+			`);
+			cel();
+			//console.log(_this.text(val))
+		})
+	</script>
+</html>

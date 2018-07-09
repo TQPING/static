@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编写一个js前端分页效果</title>
+    <style type="text/css">
+        .page-ul li{
+            display:inline-block;
+            border:1px solid #ddd;
+            background-color: #fff;
+            border-radius:4px;
+            color:#555;
+            height:28px;
+            margin-left:5px;
+            line-height:30px;
+            padding:0 10px;
+            cursor:pointer;
+        }
+        .page-ul li.active{
+            border-color:#0A7DE0;
+            background: #408cc8;
+            cursor: default;
+            color:#fff
+        }
+        .page-ul li.disabled{
+            background:#f2f2f2;
+            cursor: not-allowed;
+        }
+        .page-ul li.ellipsis{
+            padding: 3px 0;
+            border: none;
+            cursor: default;
+            color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+<div id="page"></div>
+<script type="text/javascript">
+    /**
+     * 编写一个分页函数实现如图效果
+     * @param {Number} total 数据库总记录数
+     * @param {Number} pageSize 每页有多少条记录
+     * @param {Number} page 当前页码
+     * @return {String} 返回分页效果的html
+     * */
+    function pagination(total,pageSize,page){
+        var pages = Math.ceil(total / pageSize);//总页数
+        page = Math.min(pages,page >> 0); //以防当前页大于总页数
+        var arr = [];
+        var begin = page - 2;//开始页
+        var end = page + 2;//开始页
+        if (page === 1) end = 4;//处理特殊情况 end = page + 3
+        if (page === pages) begin = pages - 3;//处理特殊情况
+        begin = Math.max(1, begin);//更正值
+        end = Math.min(pages, end);//更正值
+        for (var i = begin; i <= end; i++) arr.push(i);//循环生成中间部分
+        if (begin > 2) arr.unshift('...');
+        if (begin > 1) arr.unshift(1);
+        if (end < pages - 1) arr.push('...');
+        if (end < pages) arr.push(pages);
+        var cp = p => `onclick="pagination(${total},${pageSize},${p})"`;
+        document.querySelector("#page").innerHTML = `<ul class="page-ul"><li ${page <= 1 ? 'class="disabled"' : cp(page-1)}>上一页</li>${arr.map(i => `<li ${i === page || i === '...' ?'':cp(i)} class="${i === page ? 'active' : i === '...' ? 'ellipsis' : ''}">${i}</li>`).join('')}<li ${!pages || page === pages ? 'class="disabled"' : cp(page + 1)}>下一页</li></ul>`;
+    }
+    pagination(51,10,1);
+</script>
+</body>
+</html>

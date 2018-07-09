@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>审核店长详情</title>
+		<script src="jquery-2.1.1.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+				/*10 ÷ 16 × 100% = 62.5%*/
+			}
+			
+			body {
+				font-size: 1.4rem;
+				/*1.4 × 10px = 14px */
+			}
+			
+			h1 {
+				font-size: 2.4rem;
+				/*2.4 × 10px = 24px*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			/*清除浮动代码*/
+			
+			.clearfix:after {
+				content: ".";
+				/*加一段内容*/
+				display: block;
+				/*让生成的元素以块级元素显示，占满剩余空间*/
+				height: 0;
+				/*避免生成的内容破坏原有布局高度*/
+				clear: both;
+				/*清除浮动*/
+				visibility: hidden;
+				/*让生成的内容不可见*/
+			}
+			
+			.clearfix {
+				zoom: 1;
+				/*为IE6，7的兼容性设置*/
+			}
+			
+			.header {
+				margin: 1rem;
+				border: 1px solid #ccc;
+				padding: 1rem;
+			}
+			
+			.header>div {
+				float: left;
+			}
+			
+			.head_left {
+				width: 5rem;
+				height: 5rem;
+			}
+			
+			.small_img {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+			
+			.head_right {
+				margin-left: 2rem;
+				width: 70%;
+			}
+			
+			.head_right_three {
+				padding-top: 0.5rem;
+			}
+			
+			#mask {
+				display: none;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				background: #000;
+				opacity: 0.5;
+				z-index: 2;
+			}
+			
+			.small_img {
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+			
+			.big_img {
+				display: none;
+				position: absolute;
+				width: 80%;
+				height: 80%;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				z-index: 5;
+			}
+			
+			.desc_title {
+				display: inline-block;
+				width: 20%;
+				font-weight: bold;
+			}
+			
+			.desc_box {
+				word-wrap: break-word;
+				display: inline-block;
+				width: 100%;
+			}
+			
+			.line {
+				width: 100%;
+				border: 1px dotted #ccc;
+				margin-top: 1rem;
+			}
+			
+			.btn_box {
+				text-align: center;
+				width: 100%;
+				margin: 20px 0 10px;
+			}
+			
+			.btn_s {
+				color: #fff;
+				font-size: 15px;
+				background: dodgerblue;
+				border-radius: 5px;
+				padding: 7px 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="mask" onclick="cel()"></div>
+		<div class="header clearfix">
+			<div class="head_left">
+				<img class="small_img" src="../img/l1.png" alt="" onclick="seePic()" />
+				<img class="big_img" src="../img/l1.png" alt="" onclick="closePic()" />
+			</div>
+			<div class="head_right">
+				<ul>
+					<li>价格：<span>999</span></li>
+					<li><span class="desc_title">描述</span><span class="desc_box">fdsajdckszjcdosizdjfcoszkmdfclsdfcs</span></li>
+				</ul>
+			</div>
+			<div class="line"></div>
+			<div class="btn_box">
+				<span class="btn_s">去支付</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			var mask = document.querySelector("#mask"); //遮罩层
+			//根据窗口大小来调整mask的宽高
+			function showmask() {
+				var height = $(window).height();
+				var width = $(window).width();
+				mask.style.height = height + "px";
+				mask.style.width = width + "px";
+			}
+			showmask();
+			window.onresize = function() {
+				showmask();
+			};
+			//取消遮罩层
+			function Close() {
+				mask.style.display = "none";
+				$("body").css("overflow", "auto");
+			}
+
+			seePic = function() {
+				showmask();
+				mask.style.display = "block";
+				$(".big_img").animate({
+					opacity: '1',
+					top: '10%',
+					left: '10%'
+				}, 1000);
+				$(".big_img").show();
+			}
+			//关闭大图
+			closePic = function() {
+				Close();
+				$(".big_img").animate({
+					opacity: '0',
+					top: '0',
+					left: '0'
+				}, 1000);
+				$(".big_img").hide();
+			}
+		})
+	</script>
+
+</html>

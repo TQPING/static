@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+	</head>
+	<script src="jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+			margin-top: 10px;
+		}
+		
+		#content {
+			margin: 20px;
+		}
+		
+		h3 {
+			padding-left: 20%;
+		}
+		
+		.dt1 {
+			margin-left: 20px;
+		}
+		
+		.dt2 {
+			margin-left: 20px;
+		}
+		
+		.delTitle {
+			display: inline-block;
+			width: 160px;
+			text-align: right;
+		}
+		
+		.delCon {
+			display: inline-block;
+			width: 150px;
+			height: 20px;
+		}
+		
+		.inputLeft {
+			display: inline-block;
+			width: 77px;
+			height: 20px;
+		}
+		
+		.inputRight1 {
+			display: inline-block;
+			width: 77px;
+			height: 20px;
+		}
+		
+		.inputRight2 {
+			color: red;
+		}
+		
+		.add {
+			margin-left: 100px;
+			border: 1px solid #000;
+			padding: 2px 15px;
+			border-radius: 3px;
+		}
+		
+		.remark {
+			float: left;
+			margin-right: 5px;
+		}
+		
+		#table {
+			margin-top: 5px;
+			border-collapse: collapse;
+			text-align: center;
+			font-size: 14px;
+			margin-left: 10px;
+		}
+		
+		#th {
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 65px;
+			background: dodgerblue;
+			color: #fff;
+		}
+		
+		#td {
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 65px;
+			height: 50px;
+		}
+		
+		.tdHeight {
+			line-height: 50px;
+		}
+		
+		.hadle {
+			color: blue;
+		}
+		#name{
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 55px;
+			background: dodgerblue;
+			color: #fff;
+		}
+		#tel1{
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 100px;
+			background: dodgerblue;
+			color: #fff;
+		}
+		#ID{
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 45px;
+			background: dodgerblue;
+			color: #fff;
+		}
+		.pro{
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 55px;
+			height: 50px;
+		}
+		.Id{
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			width: 45px;
+			height: 50px;
+		}
+		.tel{
+			width: 100px;
+			border: 1px solid #000;
+			padding: 1px;
+			display: inline-block;
+			height: 50px;
+		}
+		.save{
+			margin:15px 0 20px 70px;padding: 2px 15px;display: inline-block;border: 1px solid #666;text-align: center;
+		}
+		.cancel{
+			margin:15px 0 20px 70px;padding: 2px 15px;display: inline-block;border: 1px solid #666;text-align: center;
+		}
+		#delTr{
+			margin-left: 2px;
+		}
+		h4{
+			margin: 20px 60px;
+		}
+		#addDetail{
+			display: none;
+			border: 1px solid #ddd;
+			width: 250px;
+			position: fixed;
+			top: 150px;
+			left: 50px;
+			background: #DFDFDF;
+			z-index: 3;
+		}
+		#mask{
+			z-index: 2;width: 100%;height: 100%;position: fixed;top: 0;display: none;
+		}
+		.addTitle{
+			display: inline-block;
+			width: 105px;
+			text-align: right;
+		}
+		.addCon{
+			display: inline-block;
+			width: 90px;
+			height: 20px;
+		}
+		.save1{
+			margin:15px 0 20px 30px;padding: 2px 15px;display: inline-block;border: 1px solid #666;text-align: center;
+		}
+		.cancel1{
+			margin:15px 0 20px 30px;padding: 2px 15px;display: inline-block;border: 1px solid #666;text-align: center;
+		}
+	</style>
+
+	<body>
+		<div id="content">
+			<a href="javascript:(-1)" style="float: left;font-size: 20px;color: #000;border-radius: 50%;padding: 0 5px;border: 1px solid #000;">&lt;</a>
+			<h3>新增管理中心</h3>
+			<ul id="detail">
+				<li>
+					<span class="delTitle">状态</span>
+					<span class="dt1">
+						<lable><input type="radio" name="redio" id="" value="" />已签约</lable>
+					</span>
+					<span class="dt2">
+						<lable><input type="radio" name="redio" id="" value="" />已开通</lable>
+					</span>
+				</li>
+				<li>
+					<span class="delTitle">*登陆手机号</span>
+					<input class="delCon" type="text" />
+				</li>
+				<li>
+					<span class="delTitle">*管理中心名称</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">*开通所在省</span>
+					<select type="text" class="delCon">
+						<option value="请选择省">请选择省</option>
+					</select>
+				</li>
+				<li>
+					<span class="delTitle">*管辖区域</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">企业名称</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">法人姓名</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">营业执照号</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">详细地址</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">客服经理</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">客服经理电话</span>
+					<input type="text" class="delCon" />
+				</li>
+				<li>
+					<span class="delTitle">*推荐人手机号</span>
+					<input type="text" class="delCon" />
+					<p style="color: limegreen;padding-left: 100px;display: none;">找到用户 重庆市毛毛贸易公司</p>
+					<p style="color: orange;padding-left: 100px;display: none;">该手机号用户未认证为商家</p>
+					<p style="color: orange;padding-left: 100px;display: none;">该手机号无对应用户</p>
+					<p style="color: orange;padding-left: 100px;display: none;">手机号格式不正确</p>
+				</li>
+				<li>
+					<span class="delTitle">推荐管理中心</span>
+					<select type="text" class="inputLeft">
+						<option value="请选择省">请选择省</option>
+					</select>
+					<select type="text" class="inputRight1">
+						<option value="请选择省">请选择省</option>
+					</select>
+				</li>
+				<li>
+					<span class="delTitle">推荐管理中心占股比例</span>
+					<input type="text" class="inputLeft" />%
+					<span class="inputRight2">总比例不超过100%</span>
+				</li>
+				<li>
+					<span class="delTitle remark">备注</span>
+					<textarea name="" rows="5" cols="20"></textarea>
+				</li>
+				<li>
+					<span class="delTitle">占股人员</span>
+					<span class="add" onclick="Add()">添加</span>
+				</li>
+			</ul>
+		</div>
+		<table id="table">
+			<tr>
+				<td id="name">姓名</td>
+				<td id="tel1">电话</td>
+				<td id="ID">身份</td>
+				<td id="th">占股比例</td>
+				<td id="th">操作</td>
+			</tr>
+			<tr>
+				<td class="pro">四川省</td>
+				<td class="tdHeight tel">15698756324</td>
+				<td class="tdHeight Id">武侯区</td>
+				<td id="td" class="tdHeight">已签约</td>
+				<td id="td" class="tdHeight hadle">
+					<span>编辑</span>
+					<span id="delTr">删除</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="pro">四川省</td>
+				<td class="tdHeight tel">15698756324</td>
+				<td class="tdHeight Id">武侯区</td>
+				<td id="td" class="tdHeight">已签约</td>
+				<td id="td" class="tdHeight hadle">
+					<span>编辑</span>
+					<span id="delTr">删除</span>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<span class="save">保存</span>
+			<span class="cancel">取消</span>
+		</div>
+		<!--添加管理（占股）人员-->
+		<div id="addDetail">
+			<h4>添加管理中心人员</h4>
+			<ul>
+				<li>
+					<span class="addTitle">*登陆手机号</span>
+					<input class="addCon" type="text" />
+				</li>
+				<li>
+					<span class="addTitle">*管理中心名称</span>
+					<input type="text" class="addCon" />
+				</li>
+				<li>
+					<span class="addTitle">*身份</span>
+					<select type="text" class="addCon">
+						<option value="总监">总监</option>
+					</select>
+				</li>
+				<li>
+					<span class="addTitle">*占股比例</span>
+					<input type="text" class="addCon" />%
+				</li>
+			</ul>
+			<div>
+				<span class="save1">保存</span>
+				<span class="cancel1" onclick="cel()">取消</span>
+			</div>
+		</div>
+		<div id="mask" onclick="cel()"></div>
+	</body>
+	<script>
+		function Add(){
+			$("#addDetail").show();
+			$("#mask").show();
+		}
+		function cel(){
+			$("#addDetail").hide();
+			$("#mask").hide();
+		}
+	</script>
+</html>

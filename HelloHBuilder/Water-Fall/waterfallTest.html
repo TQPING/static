@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../jquery-2.1.1.min.js"></script>
+	</head>                                                          0
+	<body>
+		<iframe style="width: 100%;height: 100%;" src="http://www.taobao.com"></iframe>
+		<div style="position: relative;padding-left: 30px;">
+			<span style="background: url(revise.jpg) no-repeat 53%;width: 25px;height: 25px;background-size: 80px;position: absolute;left: 0;"></span>修改幸福果权限
+		</div>
+		<input type="checkbox" id="forbid" name="forbid" onclick="Forbid()"/>
+		<table id="role-table" border="1">
+				<tr class="role-top">
+					<td id="role-name" class="tdhead">
+						<div id="name1">
+							接收方
+						</div>
+						<div id="name2">
+							转出方
+						</div>
+					</td>
+					<td>省办</td>
+					<td>管理中心</td>
+					<td>运营商</td>
+					<td>个人买家</td>
+					<td>企业买家</td>
+					<td>个人卖家</td>
+					<td>企业卖家</td>
+					<td>省办</td>
+					<td>管理中心</td>
+					<td>运营商</td>
+					<td>个人买家</td>
+					<td>企业买家</td>
+					<td>个人卖家</td>
+					<td>企业卖家</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">省办</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part" data-id="2">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+					<td class="rate-part">
+						<div>
+							<input type="checkbox" name="" id="" value="" />
+						</div>
+						回购费率1
+					</td>
+				</tr>
+				<tr class="role-tr">
+					<td class="role-part">企业卖家</td>
+					<td class="rate-part" data-id="2">55</td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part" data-id="2">55</td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+					<td class="rate-part"><span class="add-rate">+</span></td>
+				</tr>
+			</table>
+	</body>
+	<script>
+		//$(function(){
+			var isClick = 0;
+			function Forbid(){
+				//var isCheck = $('#forbid:checkbox[name="forbid"]:checked');
+				//console.log(isCheck)
+				if(isClick == 0){
+					var arr = $("#role-table input");
+					for(var i=0;i<arr.length;i++){
+						$(arr[i]).attr("disabled","disabled")
+					}
+					console.log(arr)
+					isClick = 1;
+				}else{
+					var arr = $("#role-table input");
+					for(var i=0;i<arr.length;i++){
+						$(arr[i]).removeAttr("disabled")
+					}
+					isClick = 0;
+				}
+				
+			}
+		//})
+		
+		
+	</script>
+</html>
+
+
