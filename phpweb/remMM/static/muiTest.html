@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../js/MUI/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/muiTest.css" />
+		<script src="../js/jquery-2.1.1.min.js"></script>
+	</head>
+
+	<body>
+
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 菜单容器 -->
+			<aside class="mui-off-canvas-left">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!-- 菜单具体展示内容 -->
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media" style="background-color: pink;text-align: center;color: #fff;">
+								<a href="javascript:;">
+									<div class="mui-media-body">
+										熊猪蹄
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<div class="mui-media-body">
+										幸福
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<div class="mui-media-body">
+										木屋
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<div class="mui-media-body">
+										CBD
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" id="showside" style="color: pink;"></a>
+					<h1 class="mui-title">标题</h1>
+				</header>
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+						<div id="banner">
+							<div class="mui-slider">
+								<div class="mui-slider-group mui-slider-loop">
+									<!--支持循环，需要重复图片节点-->
+									<div class="mui-slider-item mui-slider-item-duplicate">
+										<a href="#"><img src="../pic/21.jpg" />
+											<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+										</a>
+									</div>
+									<div class="mui-slider-item">
+										<a href="#"><img src="../pic/22.jpg" />
+											<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+										</a>
+									</div>
+									<div class="mui-slider-item">
+										<a href="#"><img src="../pic/25.jpg" />
+											<p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+										</a>
+									</div>
+									<div class="mui-slider-item">
+										<a href="#"><img src="../pic/23.jpg" />
+											<p class="mui-slider-title">Color of SIP CBD</p>
+										</a>
+									</div>
+									<div class="mui-slider-item">
+										<a href="#"><img src="../pic/24.jpg" />
+											<p class="mui-slider-title">静静看这世界</p>
+										</a>
+									</div>
+									<!--支持循环，需要重复图片节点-->
+									<div class="mui-slider-item mui-slider-item-duplicate">
+										<a href="#"><img src="../pic/22.jpg" />
+											<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+										</a>
+									</div>
+								</div>
+								<div class="mui-slider-indicator mui-text-right">
+									<div class="mui-indicator mui-active"></div>
+									<div class="mui-indicator"></div>
+									<div class="mui-indicator"></div>
+									<div class="mui-indicator"></div>
+								</div>
+							</div>
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="../pic/22.jpg">
+										<div class="mui-media-body">
+											幸福
+											<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="../pic/21.jpg">
+										<div class="mui-media-body">
+											木屋
+											<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<img class="mui-media-object mui-pull-left" src="../pic/23.jpg">
+										<div class="mui-media-body">
+											CBD
+											<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="mui-card" style="width: 80%;margin: 15px auto;">
+							<div class="mui-card-header mui-card-media">
+								<img src="//dcloud.io/hellomui/images/logo.png">
+								<div class="mui-media-body">
+									小M
+									<p>发表于 2016-06-30 15:30</p>
+								</div>
+							</div>
+							<div class="mui-card-content">
+								<img src="//dcloud.io/hellomui/images/yuantiao.jpg" alt="" width="100%">
+							</div>
+							<div class="mui-card-footer">
+								<!--<a class="mui-card-link">Like</a>
+				<a class="mui-card-link">Comment</a>
+				<a class="mui-card-link">Read more</a>-->
+								<div style="text-indent: 2em;">
+									而伟大送出哦多可怕，按时丢傻福有病毒，的才能四U盾发你的处境带你飞带你飞，电脑城女不扶见面覅哦集散地的减肥了快递费，发布到或过女富女电视剧免费V领都是发，is毒奶粉就看得见你发给已，水电费苍井空的女警佛佛IE进入，是肥牛及哦啊速度快吗。
+								</div>
+							</div>
+						</div>
+						<div id="dialogDemo" style="text-align: center;">
+							<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined" id="alertBtn">警告框</button>
+							<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined" id="confirmBtn">确认框</button>
+							<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined" id="promptBtn">输入对话框</button>
+							<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined" id="toastBtn">自动消失提示框</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/MUI/js/mui.min.js"></script>
+
+		<script type="text/javascript">
+			mui.init();
+			(function() {
+
+				var ele = ['alertBtn', 'confirmBtn', 'promptBtn', 'toastBtn'];
+				var btn = ['是', '否'];
+				mui('#dialogDemo').on('click', 'button', function(e) {
+					var target = e.target.id;
+					switch(e.target.id) {
+						case 'alertBtn':
+							mui.alert('欢迎使用 MUI !')
+							break;
+						case 'confirmBtn':
+							mui.confirm('MUI是个好框架', 'Hello MUI', btn, function(e) {
+								e.index == 0 ? mui.toast('感谢您的支持!') : mui.toast('MUI 没有得到你的认可,继续加油!')
+							})
+							break;
+						case 'promptBtn':
+							mui.prompt('请输入您对MUI的评语', '性能好', 'Hello MUI', '', function(e) {
+								e.index == 1 && e.value != '' && mui.toast('谢谢您的评价: ' + e.value)
+							})
+							break;
+						case 'toastBtn':
+							mui.toast('请勿重复提交')
+							break;
+						default:
+							break;
+					}
+				})
+
+				console.log($("#showside"))
+				//$("#showside").click(function(){
+				//mui('.mui-off-canvas-wrap').offCanvas().toggle();
+				//console.log(1111)
+				//})
+				//if(!mui('.mui-off-canvas-wrap').offCanvas().isShown('left')) {
+					$(".mui-scroll-wrapper").css("overflow", "auto");
+				//} else {
+					//$(".mui-scroll-wrapper").css("overflow", "hidden");
+				//}
+			})();
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 1500 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+
+			/*
+			var time = Date.now();
+			function timestampToTime(timestamp) {
+		        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+		        Y = date.getFullYear() + '-';
+		        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+		        D = date.getDate() + ' ';
+		        h = date.getHours() + ':';
+		        m = date.getMinutes() + ':';
+		        s = date.getSeconds();
+		        return Y+M+D+h+m+s;
+		    }
+			console.log(timestampToTime(time));*/
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,129 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	/*10 ÷ 16 × 100% = 62.5%*/
+}
+
+body {
+	font-size: 1.4rem;
+	/*1.4 × 10px = 14px */
+}
+
+h1 {
+	font-size: 2.4rem;
+	/*2.4 × 10px = 24px*/
+}
+
+a {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+
+/*清除浮动代码*/
+
+.clearfix:after {
+	content: ".";
+	/*加一段内容*/
+	display: block;
+	/*让生成的元素以块级元素显示，占满剩余空间*/
+	height: 0;
+	/*避免生成的内容破坏原有布局高度*/
+	clear: both;
+	/*清除浮动*/
+	visibility: hidden;
+	/*让生成的内容不可见*/
+}
+
+.clearfix {
+	zoom: 1;
+	/*为IE6，7的兼容性设置*/
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+h3 {
+	padding: 10px 0;
+}
+
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.ul_box {
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+	background-color: #fff;
+}
+
+.li_box {
+	overflow: hidden;
+	position: relative;
+	padding: 11px 4px;
+	text-align: left;
+	margin: 0 0 0 11px;
+	border-bottom: 1px solid #c8c7cc;
+}
+
+.a_box {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin: -11px -15px;
+	padding: inherit;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: inherit;
+}
+
+.p_ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #8f8f94;
+}
+
+.Img-logo {
+	float: left;
+	width: 42px;
+	height: 42px;
+}

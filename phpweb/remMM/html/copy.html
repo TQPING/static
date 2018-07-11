@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<!--<script src="../js/copy.js"></script>-->
+		<script src="../js/jquery-2.1.1.min.js"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				margin: 10px;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				margin-top: 10px;
+			}
+			
+			h3 {
+				text-align: center;
+				padding: 10px;
+			}
+			
+			img {
+				width: 100%;
+			}
+			
+			.title-top {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3>操作说明</h3>
+		<ul>
+			<li>
+				<p class="title-top">通过百业宝进入淘宝购物的订单才能享受百业宝补贴！</p>
+			</li>
+			<li>
+				<p>操作流程，如下图所示：</p>
+			</li>
+			<li>
+				<img id="0" src="" />
+			</li>
+			<li>
+				<img id="1" src="" />
+			</li>
+			<li>
+				<img id="2" src="" />
+			</li>
+			<li>
+				<img id="3" src="" />
+			</li>
+			<li>
+				<img id="4" src="" />
+			</li>
+			<li>
+				<img id="5" src="" />
+			</li>
+			<li>
+				<img id="6" src="" />
+			</li>
+			<li>
+				<img id="7" src="" />
+			</li>
+			<li>
+				<img id="8" src="" />
+			</li>
+		</ul>
+		<script type="text/javascript">
+			//转化图片为base64位显示
+			function convertImgToBase64(url, callback, outputFormat) {
+				var canvas = document.createElement('CANVAS'),
+					ctx = canvas.getContext('2d'),
+					img = new Image;
+				img.crossOrigin = 'Anonymous';
+				img.onload = function() {
+					canvas.height = img.height;
+					canvas.width = img.width;
+					ctx.drawImage(img, 0, 0);
+					var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+					callback.call(this, dataURL);
+					canvas = null;
+				};
+				img.src = url;
+			}
+			console.log($("img"))
+			var imgArr = ["../pic/operation1.png", "../pic/operation2.png", "../pic/operation3.png", "../pic/operation4.png", "../pic/operation5.png", "../pic/operation6.png", "../pic/operation7.png", "../pic/operation8.png", "../pic/operation9.png"];
+			imgArr.map(function(item,index){
+				convertImgToBase64(item, function(item){
+				  $("#"+index).attr("src",item)
+				});
+			})
+		</script>
+		<!--<div class="mui-input-row">
+			<label>金额<span>(元)</span></label>
+			<input type="tel" class="capital mui-input-clear" placeholder="0.00" value="">
+		</div>
+		
+		<style>
+			* {
+				font-family: ‘microsoft yahei‘;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			input {
+				width: 100px;
+				border-radius: .3em;
+				border: 1px solid #ccc;
+				padding-left: .5em;
+				margin-left: .3em;
+			}
+		</style>
+
+		<script>
+			
+			/*投资本金仅能输入数字和小数点*/
+			var precapital;
+			document.querySelector('.capital').addEventListener('focus', function() {
+				if(this.value == '0.00') {
+					this.value = '';
+				} else {
+					this.value = this.value.replace(/\.00/, '').replace(/(\.\d)0/, '$1');
+				}
+				precapital = this.value;
+			});
+			document.querySelector('.capital').addEventListener('keyup', function() {
+
+				this.value = this.value.replace(/^[\.]/, '').replace(/[^\d.]/g, '');
+				if(this.value.split(".").length - 1 > 1) {
+					this.value = precapital;
+				}
+				precapital = this.value;
+			});
+			document.querySelector('.capital').addEventListener('blur', function() {
+				this.value = this.value.replace(/[\.]$/, '');
+				this.value = Number(this.value).toFixed(2);
+			});
+		</script>-->
+
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>不听不听，王八念经</title>
+		<!--<script type="text/javascript" src="http://fw.qq.com/ipaddress" charset="gb2312"></script>-->
+		<script src="../js/jquery-2.1.1.min.js"></script>
+	</head>
+
+	<script type="text/javascript">
+		/* jQuery(function ($) {
+		        var url = document.URL;
+		        $.getJSON(url, function (data) {
+		            alert(data.Ip);//弹出本地ip
+		        });
+		       
+		    });*/
+		getWatermark("../pic/25.jpg", function(src) {
+			var img = new Image();
+			img.onload = function() {};
+			img.src = src;
+			document.body.appendChild(img);
+		});
+		//绘制canvas
+		function getWatermark(url, cb) {
+			var img = new Image();
+			img.crossOrigin = 'Anonymous'; //使用跨域图像
+			img.onload = function() {
+				var canvas = document.createElement('canvas');
+				var context = canvas.getContext('2d');
+				canvas.width = img.width;
+				canvas.height = img.height;
+				var src = canvas.toDataURL('image/png');
+				cb(src);
+			};
+			img.src = url;
+		}
+	</script>
+
+	<body>
+
+	</body>
+
+</html>

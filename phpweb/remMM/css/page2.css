@@ -1,0 +1,128 @@
+header {
+	padding: 20px 10px 0;
+}
+
+header>h3 {
+	text-align: center;
+	color: #555;
+}
+
+.top-ul {
+	text-align: center;
+}
+
+.top-ul>li {
+	float: left;
+	padding: 2rem 0 1.5rem;
+	width: 20%;
+	font-size: 1rem;
+}
+
+.top-ul>li>p {
+	color: #777;
+}
+
+hr {
+	height: 1rem;
+	background-color: #DDDDDD;
+	margin: 0;
+	border: 0;
+}
+
+.main {
+	padding: 1rem;
+}
+
+.topmsg {
+	margin-top: 1.5rem;
+	background-color: #B22222;
+	border-radius: 0.5rem;
+	box-shadow: 0rem 0.2rem 0.2rem #ccc;
+}
+
+.topmsg-top {
+	color: #fff;
+	padding: 1rem 1rem 0;
+}
+
+.top-main {
+	position: relative;
+}
+
+.s1 {
+	position: absolute;
+	top: 30%;
+}
+
+.s2 {
+	float: right;
+	margin-top: 1.5rem;
+}
+
+.topmsg-center {
+	color: #fff;
+	padding: 1rem;
+}
+
+.topmsg-center>ul>li {
+	width: 32%;
+	display: inline-block;
+}
+
+.topmsg-center>ul>li:last-child {
+	text-align: right;
+}
+
+.second-ul {
+	background-color: #fff;
+}
+
+.second-ul>li {
+	padding: 1rem 1rem 0;
+}
+
+.second-ul>li:last-child {
+	padding: 1rem;
+}
+
+.second-ul>li>b:first-child {
+	color: #888;
+}
+
+.second-ul>li>b:last-child {
+	float: right;
+	color: #333;
+}
+
+.footer {
+	padding: 1rem;
+}
+
+.footer-ul {
+	padding: 2rem 0;
+}
+
+.footer-ul>li {
+	float: left;
+	width: 33%;
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+
+.footer-ul>li:last-child {
+	border-right: none;
+}
+
+.foot-one {
+	font-size: 1.6rem;
+}
+
+.foot-two {
+	font-size: 2rem;
+	color: darkorange;
+	padding-top: 1rem;
+}
+
+.foot-three {
+	color: #ccc;
+}
